@@ -146,7 +146,7 @@ namespace Presentacion
 
         private void btn_FA_Click(object sender, EventArgs e)
         {
-            FertilizanteYAgroquimicos Frm = new FertilizanteYAgroquimicos();
+            FrmProductos Frm = new FrmProductos();
             abrirForm(Frm);
             Frm.TopLevel = false;
             PanelGeneral.Controls.Add(Frm);
