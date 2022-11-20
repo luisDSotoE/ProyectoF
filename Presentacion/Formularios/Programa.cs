@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Presentacion
 {
-    public partial class Form1 : Form
+    public partial class Programa : Form
     {
-        public Form1()
+        public Programa()
         {
             InitializeComponent();
             CustomiceDesing();
@@ -164,6 +164,14 @@ namespace Presentacion
         private void btn_Maquinaria_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Programa_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dialogo = MessageBox.Show("¿Desea cerrar el programa?",
+            "Cerrar el programa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogo == DialogResult.No) { e.Cancel = true; }
+            else { e.Cancel = false; Environment.Exit(1); }
         }
     }
 }
