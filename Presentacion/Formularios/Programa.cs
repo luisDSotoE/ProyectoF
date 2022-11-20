@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Presentacion.Formularios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -172,6 +173,15 @@ namespace Presentacion
             "Cerrar el programa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogo == DialogResult.No) { e.Cancel = true; }
             else { e.Cancel = false; Environment.Exit(1); }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FrmCliente Frm = new FrmCliente();
+            abrirForm(Frm);
+            Frm.TopLevel = false;
+            PanelGeneral.Controls.Add(Frm);
+            Frm.Show();
         }
     }
 }

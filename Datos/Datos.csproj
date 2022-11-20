@@ -41,8 +41,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Archivo.cs" />
+    <Compile Include="ArchCliente.cs" />
+    <Compile Include="ArchCompra.cs" />
+    <Compile Include="ArchInventarios.cs" />
+    <Compile Include="ArchProducto.cs" />
+    <Compile Include="ArchUsuario.cs" />
+    <Compile Include="ArchVenta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepoCliente.cs" />
+    <Compile Include="RepoCompra.cs" />
+    <Compile Include="RepoUsuario.cs" />
+    <Compile Include="RepoVenta.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{4f0d5be5-a0d6-4da2-be19-abdeb5142c04}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

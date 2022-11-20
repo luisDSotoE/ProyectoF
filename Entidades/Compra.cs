@@ -6,7 +6,6 @@ namespace Entidades
     {
         public int Id { get; set; }
         public int Numero { get; set; }
-        public Proveedor Proveedor { get; set; }
         public Usuario Usuario { get; set; }
         public DateTime FechaCompra { get; set; }
         public double Total { get; set; }
@@ -15,7 +14,7 @@ namespace Entidades
 
         public override string ToString()
         {
-            return $"{Id};{Numero};{Proveedor};{Usuario};{FechaCompra};{Total};{SubTotal};{Descuento}";
+            return $"{Id};{Numero};{Usuario};{FechaCompra};{Total};{SubTotal};{Descuento}";
         }
     }
 }
