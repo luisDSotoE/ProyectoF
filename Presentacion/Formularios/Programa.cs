@@ -25,12 +25,17 @@ namespace Presentacion
             panel_SudMenuFact.Visible = false;
             
         }
+        
         private void HidSudMenu()
         {
-            if (panelSudMenuInicio.Visible == true)
-                //panelSudMenuInicio = false;
-            if (panel_SudMenuFact.Visible == true)
-                panel_SudMenuFact.Visible = false;
+            //if (panelSudMenuInicio.Visible == true)
+            //panelSudMenuInicio.Visible = false;
+
+            //if (panel_SudMenuFact.Visible == true)
+            //    panel_SudMenuFact.Visible = false;
+                
+            //if (sub3.Visible == true)
+            //    sub3.Visible = false;
         }
 
         private void showSudMenu(Panel sudMenu)
@@ -182,6 +187,12 @@ namespace Presentacion
             Frm.TopLevel = false;
             PanelGeneral.Controls.Add(Frm);
             Frm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            showSudMenu(sub3);
+            HidSudMenu();
         }
     }
 }

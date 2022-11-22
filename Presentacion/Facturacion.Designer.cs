@@ -52,13 +52,16 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(205, 174);
+            this.numericUpDown1.Location = new System.Drawing.Point(154, 141);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(47, 22);
+            this.numericUpDown1.Size = new System.Drawing.Size(35, 20);
             this.numericUpDown1.TabIndex = 25;
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Numero,
@@ -67,11 +70,12 @@
             this.Codigo,
             this.Producto,
             this.Cantidad});
-            this.dataGridView1.Location = new System.Drawing.Point(50, 430);
+            this.dataGridView1.Location = new System.Drawing.Point(11, 374);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowHeadersWidth = 20;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(573, 160);
+            this.dataGridView1.Size = new System.Drawing.Size(617, 186);
             this.dataGridView1.TabIndex = 24;
             // 
             // Numero
@@ -79,71 +83,69 @@
             this.Numero.HeaderText = "Numero";
             this.Numero.MinimumWidth = 6;
             this.Numero.Name = "Numero";
-            this.Numero.Width = 80;
             // 
             // Tipo
             // 
             this.Tipo.HeaderText = "Tipo";
             this.Tipo.MinimumWidth = 6;
             this.Tipo.Name = "Tipo";
-            this.Tipo.Width = 60;
             // 
             // FECHAINVENTARIO
             // 
             this.FECHAINVENTARIO.HeaderText = "Fecha de inventario";
             this.FECHAINVENTARIO.MinimumWidth = 6;
             this.FECHAINVENTARIO.Name = "FECHAINVENTARIO";
-            this.FECHAINVENTARIO.Width = 120;
             // 
             // Codigo
             // 
             this.Codigo.HeaderText = "Codigo";
             this.Codigo.MinimumWidth = 6;
             this.Codigo.Name = "Codigo";
-            this.Codigo.Width = 70;
             // 
             // Producto
             // 
             this.Producto.HeaderText = "Producto";
             this.Producto.MinimumWidth = 6;
             this.Producto.Name = "Producto";
-            this.Producto.Width = 125;
             // 
             // Cantidad
             // 
             this.Cantidad.HeaderText = "Cantidad";
             this.Cantidad.MinimumWidth = 6;
             this.Cantidad.Name = "Cantidad";
-            this.Cantidad.Width = 90;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(205, 287);
+            this.textBox3.Location = new System.Drawing.Point(154, 233);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(157, 22);
+            this.textBox3.Size = new System.Drawing.Size(119, 20);
             this.textBox3.TabIndex = 23;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(205, 237);
+            this.textBox1.Location = new System.Drawing.Point(154, 193);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(157, 22);
+            this.textBox1.Size = new System.Drawing.Size(119, 20);
             this.textBox1.TabIndex = 22;
             // 
             // btnCancelarFactura
             // 
-            this.btnCancelarFactura.Location = new System.Drawing.Point(214, 361);
+            this.btnCancelarFactura.Location = new System.Drawing.Point(135, 284);
+            this.btnCancelarFactura.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancelarFactura.Name = "btnCancelarFactura";
-            this.btnCancelarFactura.Size = new System.Drawing.Size(75, 38);
+            this.btnCancelarFactura.Size = new System.Drawing.Size(67, 31);
             this.btnCancelarFactura.TabIndex = 21;
             this.btnCancelarFactura.Text = "Cancelar";
             this.btnCancelarFactura.UseVisualStyleBackColor = true;
             // 
             // btnGuardaarFac
             // 
-            this.btnGuardaarFac.Location = new System.Drawing.Point(78, 367);
+            this.btnGuardaarFac.Location = new System.Drawing.Point(206, 284);
+            this.btnGuardaarFac.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnGuardaarFac.Name = "btnGuardaarFac";
-            this.btnGuardaarFac.Size = new System.Drawing.Size(75, 27);
+            this.btnGuardaarFac.Size = new System.Drawing.Size(67, 31);
             this.btnGuardaarFac.TabIndex = 20;
             this.btnGuardaarFac.Text = "Guardar";
             this.btnGuardaarFac.UseVisualStyleBackColor = true;
@@ -151,62 +153,68 @@
             // labTipo
             // 
             this.labTipo.AutoSize = true;
-            this.labTipo.Location = new System.Drawing.Point(78, 287);
+            this.labTipo.Location = new System.Drawing.Point(58, 233);
+            this.labTipo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labTipo.Name = "labTipo";
-            this.labTipo.Size = new System.Drawing.Size(75, 16);
+            this.labTipo.Size = new System.Drawing.Size(58, 13);
             this.labTipo.TabIndex = 19;
             this.labTipo.Text = "Comprador";
             // 
             // labCantidad
             // 
             this.labCantidad.AutoSize = true;
-            this.labCantidad.Location = new System.Drawing.Point(78, 176);
+            this.labCantidad.Location = new System.Drawing.Point(58, 143);
+            this.labCantidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labCantidad.Name = "labCantidad";
-            this.labCantidad.Size = new System.Drawing.Size(61, 16);
+            this.labCantidad.Size = new System.Drawing.Size(49, 13);
             this.labCantidad.TabIndex = 18;
             this.labCantidad.Text = "Cantidad";
             // 
             // labProducto
             // 
             this.labProducto.AutoSize = true;
-            this.labProducto.Location = new System.Drawing.Point(78, 122);
+            this.labProducto.Location = new System.Drawing.Point(58, 99);
+            this.labProducto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labProducto.Name = "labProducto";
-            this.labProducto.Size = new System.Drawing.Size(61, 16);
+            this.labProducto.Size = new System.Drawing.Size(50, 13);
             this.labProducto.TabIndex = 17;
             this.labProducto.Text = "Producto";
             // 
             // labNumero
             // 
             this.labNumero.AutoSize = true;
-            this.labNumero.Location = new System.Drawing.Point(78, 237);
+            this.labNumero.Location = new System.Drawing.Point(58, 193);
+            this.labNumero.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labNumero.Name = "labNumero";
-            this.labNumero.Size = new System.Drawing.Size(46, 16);
+            this.labNumero.Size = new System.Drawing.Size(37, 13);
             this.labNumero.TabIndex = 16;
             this.labNumero.Text = "Precio";
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(205, 114);
+            this.comboBox1.Location = new System.Drawing.Point(154, 93);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(157, 24);
+            this.comboBox1.Size = new System.Drawing.Size(119, 21);
             this.comboBox1.TabIndex = 15;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(72, 24);
+            this.label1.Location = new System.Drawing.Point(54, 20);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(250, 52);
+            this.label1.Size = new System.Drawing.Size(199, 39);
             this.label1.TabIndex = 26;
             this.label1.Text = "Facturacion";
             // 
             // Facturacion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(852, 703);
+            this.ClientSize = new System.Drawing.Size(639, 571);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.dataGridView1);
@@ -220,6 +228,7 @@
             this.Controls.Add(this.labNumero);
             this.Controls.Add(this.comboBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Facturacion";
             this.Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();

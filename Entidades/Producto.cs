@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entidades
+﻿namespace Entidades
 {
     public class Producto
     {
@@ -19,7 +13,7 @@ namespace Entidades
 
         public override string ToString()
         {
-            return $"{Id};{Nombre};{Tipo};{PrecioVenta};{Minimo};{Maximo};{Codigo}";
+            return $"{Id};{Nombre};{Tipo};{PrecioVenta};{PrecioCompra};{Minimo};{Maximo};{Codigo}";
         }
     }
 }

@@ -15,6 +15,9 @@ namespace Presentacion
             StreamWriter clientes = new StreamWriter("clientes.txt",true);
             clientes.Close();
 
+            StreamWriter producto = new StreamWriter("Productos.txt", true);
+            producto.Close();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Formularios.InicioSesion());
