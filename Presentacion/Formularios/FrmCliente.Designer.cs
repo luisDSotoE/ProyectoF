@@ -29,16 +29,15 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.boxTipo = new System.Windows.Forms.ComboBox();
-            this.txtCorreo = new System.Windows.Forms.TextBox();
+            this.txtDIreccion = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtDocumento = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtApellidos = new System.Windows.Forms.TextBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtNombres = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.BtnAgregar = new System.Windows.Forms.Button();
             this.txtConsultar = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -47,6 +46,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.FechaN = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.btnCargar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -56,65 +61,58 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.boxTipo);
-            this.panel1.Controls.Add(this.txtCorreo);
+            this.panel1.Controls.Add(this.txtEmail);
+            this.panel1.Controls.Add(this.txtTelefono);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.FechaN);
+            this.panel1.Controls.Add(this.txtDIreccion);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.txtDocumento);
+            this.panel1.Controls.Add(this.txtNombre);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtApellidos);
+            this.panel1.Controls.Add(this.txtApellido);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.txtNombres);
+            this.panel1.Controls.Add(this.txtId);
             this.panel1.Controls.Add(this.BtnAgregar);
             this.panel1.Location = new System.Drawing.Point(12, 75);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(549, 131);
+            this.panel1.Size = new System.Drawing.Size(549, 250);
             this.panel1.TabIndex = 22;
             // 
-            // boxTipo
+            // txtDIreccion
             // 
-            this.boxTipo.FormattingEnabled = true;
-            this.boxTipo.Items.AddRange(new object[] {
-            "Estandar",
-            "Recurrente"});
-            this.boxTipo.Location = new System.Drawing.Point(380, 34);
-            this.boxTipo.Name = "boxTipo";
-            this.boxTipo.Size = new System.Drawing.Size(150, 26);
-            this.boxTipo.TabIndex = 26;
-            // 
-            // txtCorreo
-            // 
-            this.txtCorreo.BackColor = System.Drawing.Color.White;
-            this.txtCorreo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCorreo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorreo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
-            this.txtCorreo.Location = new System.Drawing.Point(176, 91);
-            this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(186, 26);
-            this.txtCorreo.TabIndex = 25;
+            this.txtDIreccion.BackColor = System.Drawing.Color.White;
+            this.txtDIreccion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDIreccion.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDIreccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
+            this.txtDIreccion.Location = new System.Drawing.Point(8, 93);
+            this.txtDIreccion.Name = "txtDIreccion";
+            this.txtDIreccion.Size = new System.Drawing.Size(186, 30);
+            this.txtDIreccion.TabIndex = 25;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label8.Location = new System.Drawing.Point(173, 70);
+            this.label8.Location = new System.Drawing.Point(5, 74);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(71, 18);
+            this.label8.Size = new System.Drawing.Size(87, 23);
             this.label8.TabIndex = 24;
             this.label8.Text = "Direción:";
             // 
-            // txtDocumento
+            // txtNombre
             // 
-            this.txtDocumento.BackColor = System.Drawing.Color.White;
-            this.txtDocumento.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDocumento.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDocumento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
-            this.txtDocumento.Location = new System.Drawing.Point(176, 34);
-            this.txtDocumento.Name = "txtDocumento";
-            this.txtDocumento.Size = new System.Drawing.Size(186, 26);
-            this.txtDocumento.TabIndex = 22;
-            this.txtDocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDocumento_KeyPress);
+            this.txtNombre.BackColor = System.Drawing.Color.White;
+            this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNombre.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
+            this.txtNombre.Location = new System.Drawing.Point(176, 34);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(186, 30);
+            this.txtNombre.TabIndex = 22;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDocumento_KeyPress);
             // 
             // label7
             // 
@@ -122,40 +120,40 @@
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label7.Location = new System.Drawing.Point(173, 13);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(120, 18);
+            this.label7.Size = new System.Drawing.Size(95, 23);
             this.label7.TabIndex = 21;
-            this.label7.Text = "No. Documento:";
+            this.label7.Text = "Nombres:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(377, 13);
+            this.label3.Location = new System.Drawing.Point(208, 74);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 18);
+            this.label3.Size = new System.Drawing.Size(172, 23);
             this.label3.TabIndex = 13;
-            this.label3.Text = "Tipo de cliente:";
+            this.label3.Text = "Fecha Nacimiento:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(8, 70);
+            this.label1.Location = new System.Drawing.Point(376, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 18);
+            this.label1.Size = new System.Drawing.Size(95, 23);
             this.label1.TabIndex = 11;
             this.label1.Text = "Apellidos:";
             // 
-            // txtApellidos
+            // txtApellido
             // 
-            this.txtApellidos.BackColor = System.Drawing.Color.White;
-            this.txtApellidos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtApellidos.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellidos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
-            this.txtApellidos.Location = new System.Drawing.Point(11, 91);
-            this.txtApellidos.Name = "txtApellidos";
-            this.txtApellidos.Size = new System.Drawing.Size(150, 26);
-            this.txtApellidos.TabIndex = 12;
+            this.txtApellido.BackColor = System.Drawing.Color.White;
+            this.txtApellido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtApellido.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
+            this.txtApellido.Location = new System.Drawing.Point(380, 32);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(150, 30);
+            this.txtApellido.TabIndex = 12;
             // 
             // label2
             // 
@@ -163,20 +161,20 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label2.Location = new System.Drawing.Point(5, 11);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 18);
+            this.label2.Size = new System.Drawing.Size(94, 23);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Nombres:";
+            this.label2.Text = "Id_cliente";
             // 
-            // txtNombres
+            // txtId
             // 
-            this.txtNombres.BackColor = System.Drawing.Color.White;
-            this.txtNombres.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNombres.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
-            this.txtNombres.Location = new System.Drawing.Point(8, 32);
-            this.txtNombres.Name = "txtNombres";
-            this.txtNombres.Size = new System.Drawing.Size(150, 26);
-            this.txtNombres.TabIndex = 9;
+            this.txtId.BackColor = System.Drawing.Color.White;
+            this.txtId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtId.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
+            this.txtId.Location = new System.Drawing.Point(8, 32);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(150, 30);
+            this.txtId.TabIndex = 9;
             // 
             // BtnAgregar
             // 
@@ -188,7 +186,7 @@
             this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAgregar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAgregar.ForeColor = System.Drawing.Color.White;
-            this.BtnAgregar.Location = new System.Drawing.Point(380, 89);
+            this.BtnAgregar.Location = new System.Drawing.Point(380, 207);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(150, 26);
             this.BtnAgregar.TabIndex = 3;
@@ -205,7 +203,7 @@
             this.txtConsultar.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtConsultar.Location = new System.Drawing.Point(698, 212);
             this.txtConsultar.Name = "txtConsultar";
-            this.txtConsultar.Size = new System.Drawing.Size(142, 26);
+            this.txtConsultar.Size = new System.Drawing.Size(142, 30);
             this.txtConsultar.TabIndex = 29;
             this.txtConsultar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtConsultar_KeyPress);
             // 
@@ -216,7 +214,7 @@
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label9.Location = new System.Drawing.Point(573, 215);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(124, 18);
+            this.label9.Size = new System.Drawing.Size(158, 23);
             this.label9.TabIndex = 30;
             this.label9.Text = "Consulta filtrada:";
             // 
@@ -263,7 +261,7 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(140)))), ((int)(((byte)(59)))));
             this.label4.Location = new System.Drawing.Point(5, 20);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(545, 51);
+            this.label4.Size = new System.Drawing.Size(680, 63);
             this.label4.TabIndex = 32;
             this.label4.Text = "CONTROL DE CLIENTES:";
             // 
@@ -277,13 +275,13 @@
             this.Grilla.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Grilla.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla.Location = new System.Drawing.Point(12, 244);
+            this.Grilla.Location = new System.Drawing.Point(12, 331);
             this.Grilla.Name = "Grilla";
             this.Grilla.ReadOnly = true;
             this.Grilla.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.Grilla.RowHeadersWidth = 15;
             this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(828, 412);
+            this.Grilla.Size = new System.Drawing.Size(828, 325);
             this.Grilla.TabIndex = 34;
             // 
             // pictureBox1
@@ -297,12 +295,62 @@
             this.pictureBox1.TabIndex = 33;
             this.pictureBox1.TabStop = false;
             // 
+            // FechaN
+            // 
+            this.FechaN.Location = new System.Drawing.Point(212, 99);
+            this.FechaN.Name = "FechaN";
+            this.FechaN.Size = new System.Drawing.Size(200, 30);
+            this.FechaN.TabIndex = 26;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(5, 132);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(84, 23);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Telefono";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(231, 132);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 23);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "Email";
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Location = new System.Drawing.Point(9, 158);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(149, 30);
+            this.txtTelefono.TabIndex = 29;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(225, 158);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(170, 30);
+            this.txtEmail.TabIndex = 30;
+            // 
+            // btnCargar
+            // 
+            this.btnCargar.Location = new System.Drawing.Point(611, 283);
+            this.btnCargar.Name = "btnCargar";
+            this.btnCargar.Size = new System.Drawing.Size(109, 42);
+            this.btnCargar.TabIndex = 35;
+            this.btnCargar.Text = "Cargar";
+            this.btnCargar.UseVisualStyleBackColor = true;
+            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
+            // 
             // FrmCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(852, 703);
+            this.Controls.Add(this.btnCargar);
             this.Controls.Add(this.Grilla);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label4);
@@ -330,17 +378,16 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtCorreo;
+        private System.Windows.Forms.TextBox txtDIreccion;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtDocumento;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtApellidos;
+        private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtNombres;
+        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Button BtnAgregar;
-        private System.Windows.Forms.ComboBox boxTipo;
         private System.Windows.Forms.TextBox txtConsultar;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnEditar;
@@ -348,5 +395,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView Grilla;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker FechaN;
+        private System.Windows.Forms.Button btnCargar;
     }
 }

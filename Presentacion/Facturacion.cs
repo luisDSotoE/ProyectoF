@@ -13,6 +13,7 @@ namespace Presentacion
 {
     public partial class Facturacion : Form
     {
+        OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=proyecto;USER ID = proyecto ");
         public Facturacion()
         {
             InitializeComponent();
@@ -22,20 +23,19 @@ namespace Presentacion
         
            
             {
-                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=admin;USER ID = proyectof ");
-                ora.Open();
-                OracleCommand comando = new OracleCommand("seleccionarFACTURACION", ora);
-                comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("registro", OracleType.Cursor).Direction = ParameterDirection.Output;
+            
+            ora.Open();
+            OracleCommand comando = new OracleCommand("seleccionarFACTURA", ora);
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
 
-                OracleDataAdapter adaptador = new OracleDataAdapter();
-                adaptador.SelectCommand = comando;
-                DataTable tabla = new DataTable();
-                adaptador.Fill(tabla);
-                dataGridView2.DataSource = tabla;
+            OracleDataAdapter adaptador = new OracleDataAdapter();
+            adaptador.SelectCommand = comando;
+            DataTable tabla = new DataTable();
+            adaptador.Fill(tabla);
+            dataGridView2.DataSource = tabla;
 
-                ora.Close();
-            }
+        }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

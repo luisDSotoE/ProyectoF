@@ -1,12 +1,15 @@
 ﻿using Entidades;
 using Negocio;
 using System;
+using System.Data.OracleClient;
+using System.Data;
 using System.Windows.Forms;
 
 namespace Presentacion.Formularios
 {
     public partial class FrmCliente : Form
     {
+        OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=proyecto;USER ID = proyecto ");
         public FrmCliente()
         {
             InitializeComponent();
@@ -17,32 +20,32 @@ namespace Presentacion.Formularios
 
         private bool Validacion()
         {
-            if (txtNombres.Text == "")
+            if (txtId.Text == "")
             {
                 MessageBox.Show("El campo de nombres está vacio.", "Mensaje del sistema",
                 MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtNombres.Focus();
+                txtId.Focus();
                 return true;
             }
-            else if (txtApellidos.Text == "")
+            else if (txtApellido.Text == "")
             {
                 MessageBox.Show("El campo de apellidos está vacio.", "Mensaje del sistema",
                 MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtApellidos.Focus();
+                txtApellido.Focus();
                 return true;
             }
-            else if (txtDocumento.Text == "")
+            else if (txtNombre.Text == "")
             {
                 MessageBox.Show("El campo de documento está vacio.", "Mensaje del sistema",
                 MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtDocumento.Focus();
+                txtNombre.Focus();
                 return true;
             }
-            else if (txtCorreo.Text == "")
+            else if (txtDIreccion.Text == "")
             {
                 MessageBox.Show("El campo de correo está vacio.", "Mensaje del sistema",
                 MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtCorreo.Focus();
+                txtDIreccion.Focus();
                 return true;
             }
             else
@@ -84,11 +87,11 @@ namespace Presentacion.Formularios
         {
             Cliente cliente = new Cliente();
 
-            cliente.Nombres = txtNombres.Text.ToUpperInvariant();
-            cliente.Apellidos = txtApellidos.Text.ToUpperInvariant();
-            cliente.Documento = txtDocumento.Text.ToUpperInvariant();
-            cliente.Direccion = txtCorreo.Text.ToUpperInvariant();
-            cliente.TipoCliente = boxTipo.Text.ToUpperInvariant();
+            cliente.Nombres = txtId.Text.ToUpperInvariant();
+            cliente.Apellidos = txtApellido.Text.ToUpperInvariant();
+            cliente.Documento = txtNombre.Text.ToUpperInvariant();
+            cliente.Direccion = txtDIreccion.Text.ToUpperInvariant();
+
 
             Random numeroRandom = new Random();
             cliente.Id = numeroRandom.Next(0, 1000000);
@@ -100,10 +103,10 @@ namespace Presentacion.Formularios
 
         private void LimpiarCampos()
         {
-            txtNombres.Text = "";
-            txtApellidos.Text = "";
-            txtDocumento.Text = "";
-            txtCorreo.Text = "";
+            txtId.Text = "";
+            txtApellido.Text = "";
+            txtNombre.Text = "";
+            txtDIreccion.Text = "";
         }
 
         private void AgregarCliente()
@@ -120,7 +123,7 @@ namespace Presentacion.Formularios
                     else
                     {
                         DialogResult resultado = MessageBox.Show("Desea agregar el cliente "
-                        + txtNombres.Text.ToUpperInvariant() + " " + txtApellidos.Text.ToUpperInvariant() + " al registro?", "Mensaje del sistema",
+                        + txtId.Text.ToUpperInvariant() + " " + txtApellido.Text.ToUpperInvariant() + " al registro?", "Mensaje del sistema",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (resultado == DialogResult.Yes)
@@ -129,7 +132,7 @@ namespace Presentacion.Formularios
 
                             foreach (var item in clienteImpl.Listar())
                             {
-                                if (item.Documento.ToString() == txtDocumento.Text.ToUpperInvariant())
+                                if (item.Documento.ToString() == txtNombre.Text.ToUpperInvariant())
                                 {
                                     clienteExistente = true;
                                     break;
@@ -138,7 +141,7 @@ namespace Presentacion.Formularios
 
                             if (clienteExistente)
                             {
-                                MessageBox.Show("Ya existe un clienter con el documento " + txtDocumento.Text.ToUpperInvariant()
+                                MessageBox.Show("Ya existe un clienter con el documento " + txtNombre.Text.ToUpperInvariant()
                                     + " registrado.", "Mensaje del sistema",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
@@ -249,6 +252,21 @@ namespace Presentacion.Formularios
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 e.Handled = true;
             }
+        }
+
+        private void btnCargar_Click(object sender, EventArgs e)
+        {
+            
+            ora.Open();
+            OracleCommand comando = new OracleCommand("seleccionarCLIENTE", ora);
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
+
+            OracleDataAdapter adaptador = new OracleDataAdapter();
+            adaptador.SelectCommand = comando;
+            DataTable tabla = new DataTable();
+            adaptador.Fill(tabla);
+            Grilla.DataSource = tabla;
         }
     }
 }
