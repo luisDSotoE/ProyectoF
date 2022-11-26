@@ -4,12 +4,13 @@ using System;
 using System.Data.OracleClient;
 using System.Data;
 using System.Windows.Forms;
+using DocumentFormat.OpenXml.Wordprocessing;
 
 namespace Presentacion.Formularios
 {
     public partial class FrmCliente : Form
     {
-        OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=proyecto;USER ID = proyecto ");
+        OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
         public FrmCliente()
         {
             InitializeComponent();
@@ -246,17 +247,12 @@ namespace Presentacion.Formularios
 
         private void txtDocumento_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
-            {
-                MessageBox.Show("Este campo solo admite numeros.", "Mensaje del sistema",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                e.Handled = true;
-            }
+
         }
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            
+
             ora.Open();
             OracleCommand comando = new OracleCommand("seleccionarCLIENTE", ora);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -267,6 +263,74 @@ namespace Presentacion.Formularios
             DataTable tabla = new DataTable();
             adaptador.Fill(tabla);
             Grilla.DataSource = tabla;
+            ora.Close();
+        }
+
+        private void btnInsertar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ora.Open();
+                OracleCommand comando = new OracleCommand("INSERTAR", ora);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("Nom", OracleType.VarChar).Value = txtNombre.Text;
+                comando.Parameters.Add("Ape", OracleType.VarChar).Value = txtApellido.Text;
+                comando.Parameters.Add("Dir", OracleType.VarChar).Value = txtDIreccion.Text;
+                comando.Parameters.Add("Tel", OracleType.Number).Value = txtTelefono.Text;
+                comando.Parameters.Add("email", OracleType.VarChar).Value = txtEmail.Text;
+                comando.ExecuteNonQuery();
+                MessageBox.Show("CLIENTE insertada");
+                
+                
+
+            }
+            catch (Exception ex)
+            {
+
+                
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            ora.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            ora.Open();
+            OracleCommand comando = new OracleCommand("Actualizar", ora);
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.Parameters.Add("idc", OracleType.Number).Value = Convert.ToInt32(txtId.Text);
+            comando.Parameters.Add("nom", OracleType.VarChar).Value = txtNombre.Text;
+            comando.Parameters.Add("ape", OracleType.VarChar).Value = txtApellido.Text;
+            comando.Parameters.Add("dir", OracleType.VarChar).Value = (txtDIreccion.Text);
+            comando.Parameters.Add("tel", OracleType.Number).Value = txtTelefono.Text;
+            comando.Parameters.Add("email", OracleType.VarChar).Value = txtEmail.Text;
+            comando.ExecuteNonQuery();
+            MessageBox.Show("CLIENTE actualizada");
+            ora.Close();
+            }
+            
+
+        private void txtApellido_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnElimna_Click(object sender, EventArgs e)
+        {
+            ora.Open();
+            OracleCommand comando = new OracleCommand("eliminar", ora);
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.Parameters.Add("idc", OracleType.Number).Value = Convert.ToInt32(txtId.Text);
+
+            comando.ExecuteNonQuery();
+            MessageBox.Show("Eliminado");
+            ora.Close();
         }
     }
 }

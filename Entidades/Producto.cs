@@ -10,6 +10,8 @@
         public int Minimo { get; set; }
         public int Maximo { get; set; }
         public string Codigo { get; set; }
+        public double Stock { get; set; }
+        public double Precio { get; set; }
 
         public override string ToString()
         {

@@ -1,12 +1,16 @@
-﻿using Entidades;
+﻿using DocumentFormat.OpenXml.Wordprocessing;
+using Entidades;
 using Negocio;
 using System;
+using System.Data;
+using System.Data.OracleClient;
 using System.Windows.Forms;
 
 namespace Presentacion.Formularios
 {
     public partial class FrmProductos : Form
     {
+        OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
         public FrmProductos()
         {
             InitializeComponent();
@@ -22,47 +26,34 @@ namespace Presentacion.Formularios
 
         private bool Validacion()
         {
-            if (txtNombre.Text == "")
+            if (txtIdp.Text == "")
             {
                 MessageBox.Show("El campo de nombre está vacio.", "Mensaje del sistema",
+                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtIdp.Focus();
+                return true;
+            }
+            else if (txtNombre.Text == "")
+            {
+                MessageBox.Show("El campo de tipo está vacio.", "Mensaje del sistema",
                 MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtNombre.Focus();
                 return true;
             }
-            else if (txtTipo.Text == "")
-            {
-                MessageBox.Show("El campo de tipo está vacio.", "Mensaje del sistema",
-                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtTipo.Focus();
-                return true;
-            }
-            else if (txtCompra.Text == "")
+            else if (txtPrecio.Text == "")
             {
                 MessageBox.Show("El campo de compra está vacio.", "Mensaje del sistema",
                 MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtCompra.Focus();
+                txtPrecio.Focus();
                 return true;
             }
-            else if (txtVenta.Text == "")
+            else if (txtStock.Text == "")
             {
                 MessageBox.Show("El campo de venta está vacio.", "Mensaje del sistema",
                 MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtVenta.Focus();
+                txtStock.Focus();
                 return true;
-            }
-            else if (txtMin.Text == "")
-            {
-                MessageBox.Show("El campo de minimo está vacio.", "Mensaje del sistema",
-                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtMin.Focus();
-                return true;
-            }
-            else if (txtMax.Text == "")
-            {
-                MessageBox.Show("El campo de maximo está vacio.", "Mensaje del sistema",
-                MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtMax.Focus();
-                return true;
+
             }
             else
             {
@@ -111,13 +102,11 @@ namespace Presentacion.Formularios
                 Producto producto = new Producto();
                 Random numeroRandom = new Random();
                 producto.Id = numeroRandom.Next(0, 1000000);
-                producto.Nombre = txtNombre.Text.ToUpperInvariant();
-                producto.Tipo = txtTipo.Text.ToUpperInvariant();
-                producto.PrecioCompra = double.Parse(txtCompra.Text.ToUpperInvariant());
-                producto.PrecioVenta = double.Parse(txtVenta.Text.ToUpperInvariant());
-                producto.Minimo = int.Parse(txtMin.Text.ToUpperInvariant());
-                producto.Maximo = int.Parse(txtMax.Text.ToUpperInvariant());
-                producto.Codigo = txtCodigo.Text.ToUpperInvariant();
+                producto.Nombre = txtIdp.Text.ToUpperInvariant();
+                producto.Tipo = txtNombre.Text.ToUpperInvariant();
+                producto.Precio = double.Parse(txtPrecio.Text.ToUpperInvariant());
+                producto.Stock = double.Parse(txtStock.Text.ToUpperInvariant());
+
 
                 productoImpl.Agregar(producto);
                 Grilla.DataSource = null;
@@ -132,13 +121,11 @@ namespace Presentacion.Formularios
 
         private void LimpiarCampos()
         {
+            txtIdp.Text = "";
             txtNombre.Text = "";
-            txtTipo.Text = "";
-            txtCompra.Text = "";
-            txtVenta.Text = "";
-            txtMin.Text = "";
-            txtMax.Text = "";
-            txtCodigo.Text = "";
+            txtPrecio.Text = "";
+            txtStock.Text = "";
+
         }
 
         private void AgregarProducto()
@@ -154,7 +141,7 @@ namespace Presentacion.Formularios
                     else
                     {
                         DialogResult resultado = MessageBox.Show("Desea agregar el producto "
-                        + txtNombre.Text.ToUpperInvariant() + " al registro?", "Mensaje del sistema",
+                        + txtIdp.Text.ToUpperInvariant() + " al registro?", "Mensaje del sistema",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (resultado == DialogResult.Yes)
@@ -163,7 +150,7 @@ namespace Presentacion.Formularios
 
                             foreach (var item in productoImpl.Listar())
                             {
-                                if (item.Codigo.ToString() == txtCodigo.Text.ToUpperInvariant())
+                                if (item.Codigo.ToString() == txtIdp.Text.ToUpperInvariant())
                                 {
                                     ProductoExistente = true;
                                     break;
@@ -172,7 +159,7 @@ namespace Presentacion.Formularios
 
                             if (ProductoExistente)
                             {
-                                MessageBox.Show("Ya existe un producto con el codigo " + txtCodigo.Text.ToUpperInvariant()
+                                MessageBox.Show("Ya existe un producto con el codigo " + txtIdp.Text.ToUpperInvariant()
                                     + " registrado.", "Mensaje del sistema",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
@@ -257,5 +244,96 @@ namespace Presentacion.Formularios
                 }
             }
         }
+
+        private void btnCargar_Click(object sender, EventArgs e)
+        {
+            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
+            ora.Open();
+            OracleCommand comando = new OracleCommand("seleccionarPRODUCTO", ora);
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
+
+            OracleDataAdapter adaptador = new OracleDataAdapter();
+            adaptador.SelectCommand = comando;
+            DataTable tabla = new DataTable();
+            adaptador.Fill(tabla);
+            Grilla.DataSource = tabla;
+        }
+
+        private void Grilla_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnInsertar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ora.Open();
+                OracleCommand comando = new OracleCommand("INSERTAR3", ora);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("Nom", OracleType.VarChar).Value = txtNombre.Text;
+                comando.Parameters.Add("precio", OracleType.VarChar).Value = txtPrecio.Text;
+                comando.Parameters.Add("stock", OracleType.VarChar).Value = txtStock.Text;
+                comando.Parameters.Add("idf", OracleType.Number).Value = txtIdf.Text;
+                comando.ExecuteNonQuery();
+                MessageBox.Show("CLIENTE insertada");
+                ora.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+
+
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            ora.Close();
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
+                ora.Open();
+                OracleCommand comando = new OracleCommand("Actualizar3", ora);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("idp", OracleType.Number).Value = Convert.ToInt32(txtIdp.Text);
+                comando.Parameters.Add("nom", OracleType.VarChar).Value = txtNombre.Text;
+                comando.Parameters.Add("precio", OracleType.Number).Value = Convert.ToInt32(txtPrecio.Text);
+                comando.Parameters.Add("stock", OracleType.Number).Value = Convert.ToInt32(txtStock.Text);
+                comando.Parameters.Add("idf", OracleType.Number).Value = Convert.ToInt32(txtIdf.Text);
+                comando.ExecuteNonQuery();
+                MessageBox.Show("PRODUCTO actualizada");
+                ora.Close();
+
+            }
+            catch (Exception ex)
+            {
+                ora.Close();
+
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            ora.Close();
+        }
+
+        private void btnEliminado_Click(object sender, EventArgs e)
+        {
+            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
+            ora.Open();
+            OracleCommand comando = new OracleCommand("eliminar3", ora);
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.Parameters.Add("idp", OracleType.Number).Value = Convert.ToInt32(txtIdp.Text);
+            comando.ExecuteNonQuery();
+            MessageBox.Show("Eliminado");
+            ora.Close();
+        }
+
+        private void txtIdp_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
+    
 }
