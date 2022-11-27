@@ -16,12 +16,12 @@ namespace Presentacion.Formularios
             InitializeComponent();
         }
 
-        public static ServicioProductoImpl productoImpl = new ServicioProductoImpl();
+        //public static ServicioProductoImpl productoImpl = new ServicioProductoImpl();
         int posicion = 0;
 
         private void FrmProductos_Load(object sender, EventArgs e)
         {
-            Grilla.DataSource = productoImpl.Listar();
+            //Grilla.DataSource = productoImpl.Listar();
         }
 
         private bool Validacion()
@@ -86,7 +86,7 @@ namespace Presentacion.Formularios
             else
             {
                 Grilla.DataSource = null;
-                Grilla.DataSource = productoImpl.Listar();
+                //Grilla.DataSource = productoImpl.Listar();
             }
         }
 
@@ -97,26 +97,26 @@ namespace Presentacion.Formularios
 
         private void CrearProducto()
         {
-            try
-            {
-                Producto producto = new Producto();
-                Random numeroRandom = new Random();
-                producto.Id = numeroRandom.Next(0, 1000000);
-                producto.Nombre = txtIdp.Text.ToUpperInvariant();
-                producto.Tipo = txtNombre.Text.ToUpperInvariant();
-                producto.Precio = double.Parse(txtPrecio.Text.ToUpperInvariant());
-                producto.Stock = double.Parse(txtStock.Text.ToUpperInvariant());
+            //try
+            //{
+            //    Producto producto = new Producto();
+            //    Random numeroRandom = new Random();
+            //    producto.Id = numeroRandom.Next(0, 1000000);
+            //    producto.Nombre = txtIdp.Text.ToUpperInvariant();
+            //    producto.Tipo = txtNombre.Text.ToUpperInvariant();
+            //    producto.Precio = double.Parse(txtPrecio.Text.ToUpperInvariant());
+            //    producto.Stock = double.Parse(txtStock.Text.ToUpperInvariant());
 
 
-                productoImpl.Agregar(producto);
-                Grilla.DataSource = null;
-                Grilla.DataSource = productoImpl.Listar();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Mensaje del sistema",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //    productoImpl.Agregar(producto);
+            //    Grilla.DataSource = null;
+            //    //Grilla.DataSource = productoImpl.Listar();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Mensaje del sistema",
+            //    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
         private void LimpiarCampos()
@@ -130,93 +130,93 @@ namespace Presentacion.Formularios
 
         private void AgregarProducto()
         {
-            if (BtnAgregar.Text == "Agregar")
-            {
-                try
-                {
-                    if (Validacion() == true)
-                    {
+            //if (BtnAgregar.Text == "Agregar")
+            //{
+            //    try
+            //    {
+            //        if (Validacion() == true)
+            //        {
 
-                    }
-                    else
-                    {
-                        DialogResult resultado = MessageBox.Show("Desea agregar el producto "
-                        + txtIdp.Text.ToUpperInvariant() + " al registro?", "Mensaje del sistema",
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //        }
+            //        else
+            //        {
+            //            DialogResult resultado = MessageBox.Show("Desea agregar el producto "
+            //            + txtIdp.Text.ToUpperInvariant() + " al registro?", "Mensaje del sistema",
+            //            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                        if (resultado == DialogResult.Yes)
-                        {
-                            bool ProductoExistente = false;
+            //            if (resultado == DialogResult.Yes)
+            //            {
+            //                bool ProductoExistente = false;
 
-                            foreach (var item in productoImpl.Listar())
-                            {
-                                if (item.Codigo.ToString() == txtIdp.Text.ToUpperInvariant())
-                                {
-                                    ProductoExistente = true;
-                                    break;
-                                }
-                            }
+            //                foreach (var item in productoImpl.Listar())
+            //                {
+            //                    if (item.Codigo.ToString() == txtIdp.Text.ToUpperInvariant())
+            //                    {
+            //                        ProductoExistente = true;
+            //                        break;
+            //                    }
+            //                }
 
-                            if (ProductoExistente)
-                            {
-                                MessageBox.Show("Ya existe un producto con el codigo " + txtIdp.Text.ToUpperInvariant()
-                                    + " registrado.", "Mensaje del sistema",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            else
-                            {
-                                CrearProducto();
-                                LimpiarCampos();
+            //                if (ProductoExistente)
+            //                {
+            //                    MessageBox.Show("Ya existe un producto con el codigo " + txtIdp.Text.ToUpperInvariant()
+            //                        + " registrado.", "Mensaje del sistema",
+            //                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //                }
+            //                else
+            //                {
+            //                    CrearProducto();
+            //                    LimpiarCampos();
 
-                                MessageBox.Show("Producto creado exitosamente.", "Mensaje del sistema",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                        }
-                        else
-                        {
+            //                    MessageBox.Show("Producto creado exitosamente.", "Mensaje del sistema",
+            //                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //                }
+            //            }
+            //            else
+            //            {
 
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Mensaje del sistema",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                //ModificarCategoria();
-            }
+            //            }
+            //        }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show(ex.Message, "Mensaje del sistema",
+            //        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
+            //}
+            //else
+            //{
+            //    //ModificarCategoria();
+            //}
         }
 
         private void EliminarProducto()
         {
-            try
-            {
-                DialogResult resultado = MessageBox.Show("Desea eliminar el Producto "
-                + Grilla[1, posicion].Value + " del registro?", "Mensaje del sistema",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //try
+            //{
+            //    DialogResult resultado = MessageBox.Show("Desea eliminar el Producto "
+            //    + Grilla[1, posicion].Value + " del registro?", "Mensaje del sistema",
+            //    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                if (resultado == DialogResult.Yes)
-                {
-                    productoImpl.Eliminar(productoImpl.Listar()[posicion]);
-                    MessageBox.Show("Producto eliminado correctamente.", "Mensaje del sistema",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    if (resultado == DialogResult.Yes)
+            //    {
+            //        productoImpl.Eliminar(productoImpl.Listar()[posicion]);
+            //        MessageBox.Show("Producto eliminado correctamente.", "Mensaje del sistema",
+            //        MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    Grilla.DataSource = null;
-                    Grilla.DataSource = productoImpl.Listar();
-                }
-                else
-                {
+            //        Grilla.DataSource = null;
+            //        Grilla.DataSource = productoImpl.Listar();
+            //    }
+            //    else
+            //    {
 
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Mensaje del sistema",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message, "Mensaje del sistema",
+            //    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
         private void BtnAgregar_Click(object sender, EventArgs e)
@@ -226,23 +226,23 @@ namespace Presentacion.Formularios
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (productoImpl.Listar().Count == 0)
-            {
-                MessageBox.Show("No hay Productos registrados.", "Mensaje del sistema",
-                MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                if (posicion < 0)
-                {
-                    MessageBox.Show("Seleccione un registro.", "Mensaje del sistema",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
-                    EliminarProducto();
-                }
-            }
+            //if (productoImpl.Listar().Count == 0)
+            //{
+            //    MessageBox.Show("No hay Productos registrados.", "Mensaje del sistema",
+            //    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
+            //else
+            //{
+            //    if (posicion < 0)
+            //    {
+            //        MessageBox.Show("Seleccione un registro.", "Mensaje del sistema",
+            //        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    }
+            //    else
+            //    {
+            //        EliminarProducto();
+            //    }
+            //}
         }
 
         private void btnCargar_Click(object sender, EventArgs e)
@@ -269,6 +269,7 @@ namespace Presentacion.Formularios
         {
             try
             {
+                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
                 ora.Open();
                 OracleCommand comando = new OracleCommand("INSERTAR3", ora);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;

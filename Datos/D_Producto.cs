@@ -1,6 +1,6 @@
 ﻿namespace Datos
 {
-    public class ArchUsuario
+    public class D_Producto
     {
     }
 }

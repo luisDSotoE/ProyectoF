@@ -1,6 +1,6 @@
 ﻿namespace Datos
 {
-    public class RepoCompra
+    public class D_Factura
     {
     }
 }

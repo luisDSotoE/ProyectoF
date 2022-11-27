@@ -1,7 +1,6 @@
 ﻿namespace Datos
 {
-    public class ArchCompra
+    public class D_Clientes
     {
     }
 }
-
