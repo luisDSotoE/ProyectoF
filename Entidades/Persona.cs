@@ -7,10 +7,12 @@
         public string Apellidos { get; set; }
         public string Documento { get; set; }
         public string Direccion { get; set; }
+        public string Telefono { get; set; }
+        public string Correo { get; set; }
 
         public override string ToString()
         {
-            return $"{Id};{Nombres};{Apellidos};{Documento};{Direccion};"; 
+            return $"{Id};{Nombres};{Apellidos};{Documento};{Direccion};";
         }
     }
 }

@@ -19,6 +19,8 @@ namespace Presentacion.Formularios
         //public static ServicioClienteImpl clienteImpl = new ServicioClienteImpl();
         int posicion = 0;
 
+        L_Cliente logicaCliente = new L_Cliente();
+
         private bool Validacion()
         {
             if (txtId.Text == "")
@@ -42,11 +44,11 @@ namespace Presentacion.Formularios
                 txtNombre.Focus();
                 return true;
             }
-            else if (txtDIreccion.Text == "")
+            else if (txtDireccion.Text == "")
             {
                 MessageBox.Show("El campo de correo está vacio.", "Mensaje del sistema",
                 MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtDIreccion.Focus();
+                txtDireccion.Focus();
                 return true;
             }
             else
@@ -107,7 +109,7 @@ namespace Presentacion.Formularios
             txtId.Text = "";
             txtApellido.Text = "";
             txtNombre.Text = "";
-            txtDIreccion.Text = "";
+            txtDireccion.Text = "";
         }
 
         private void AgregarCliente()
@@ -237,7 +239,7 @@ namespace Presentacion.Formularios
 
         private void FrmCliente_Load(object sender, EventArgs e)
         {
-            //Grilla.DataSource = clienteImpl.Listar();
+            logicaCliente.CargarDatos(Grilla);
         }
 
         private void txtConsultar_KeyPress(object sender, KeyPressEventArgs e)
@@ -252,65 +254,47 @@ namespace Presentacion.Formularios
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
-            ora.Open();
-            OracleCommand comando = new OracleCommand("seleccionarCLIENTE", ora);
-            comando.CommandType = System.Data.CommandType.StoredProcedure;
-            comando.Parameters.Add("registros", OracleType.Cursor).Direction = ParameterDirection.Output;
-
-            OracleDataAdapter adaptador = new OracleDataAdapter();
-            adaptador.SelectCommand = comando;
-            DataTable tabla = new DataTable();
-            adaptador.Fill(tabla);
-            Grilla.DataSource = tabla;
-            ora.Close();
+            logicaCliente.CargarDatos(Grilla);
         }
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
-                ora.Open();
-                OracleCommand comando = new OracleCommand("INSERTAR", ora);
-                comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("Nom", OracleType.VarChar).Value = txtNombre.Text;
-                comando.Parameters.Add("Ape", OracleType.VarChar).Value = txtApellido.Text;
-                comando.Parameters.Add("Dir", OracleType.VarChar).Value = txtDIreccion.Text;
-                comando.Parameters.Add("Tel", OracleType.Number).Value = txtTelefono.Text;
-                comando.Parameters.Add("email", OracleType.VarChar).Value = txtEmail.Text;
-                comando.ExecuteNonQuery();
-                MessageBox.Show("CLIENTE insertada");
-                
-                
+            Cliente cliente = new Cliente();
+            cliente.Nombres = txtNombre.Text;
+            cliente.Apellidos = txtApellido.Text;
+            cliente.Direccion = txtDireccion.Text;
+            cliente.Telefono = txtTelefono.Text;
+            cliente.Correo = txtEmail.Text;
 
-            }
-            catch (Exception ex)
-            {
+            logicaCliente.Insertar(cliente);
 
-                
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (!logicaCliente.Insertar(cliente))
+            {
+                MessageBox.Show("No se insertó el cliente");
             }
-            ora.Close();
+            else { MessageBox.Show("Si se insertó el cliente"); }
+            Grilla.DataSource = null;
+            logicaCliente.CargarDatos(Grilla);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
-            ora.Open();
-            OracleCommand comando = new OracleCommand("Actualizar", ora);
-            comando.CommandType = System.Data.CommandType.StoredProcedure;
-            comando.Parameters.Add("idc", OracleType.Number).Value = Convert.ToInt32(txtId.Text);
-            comando.Parameters.Add("nom", OracleType.VarChar).Value = txtNombre.Text;
-            comando.Parameters.Add("ape", OracleType.VarChar).Value = txtApellido.Text;
-            comando.Parameters.Add("dir", OracleType.VarChar).Value = (txtDIreccion.Text);
-            comando.Parameters.Add("tel", OracleType.Number).Value = txtTelefono.Text;
-            comando.Parameters.Add("email", OracleType.VarChar).Value = txtEmail.Text;
-            comando.ExecuteNonQuery();
-            MessageBox.Show("CLIENTE actualizada");
-            ora.Close();
+            Cliente cliente = new Cliente();
+            cliente.Id = Convert.ToInt32(txtId.Text);
+            cliente.Nombres = txtNombre.Text;
+            cliente.Apellidos = txtApellido.Text;
+            cliente.Direccion = txtDireccion.Text;
+            cliente.Telefono = txtTelefono.Text;
+            cliente.Correo = txtEmail.Text;
+
+            logicaCliente.Actualizar(cliente);
+            if (!logicaCliente.Actualizar(cliente))
+            {
+                MessageBox.Show("No se actualizó el cliente");
             }
-            
+            else { MessageBox.Show("Cliente actualizado correctamente"); }
+            logicaCliente.CargarDatos(Grilla);
+        }
 
         private void txtApellido_TextChanged(object sender, EventArgs e)
         {
@@ -324,15 +308,13 @@ namespace Presentacion.Formularios
 
         private void btnElimna_Click(object sender, EventArgs e)
         {
-            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
-            ora.Open();
-            OracleCommand comando = new OracleCommand("eliminar", ora);
-            comando.CommandType = System.Data.CommandType.StoredProcedure;
-            comando.Parameters.Add("idc", OracleType.Number).Value = Convert.ToInt32(txtId.Text);
-
-            comando.ExecuteNonQuery();
-            MessageBox.Show("Eliminado");
-            ora.Close();
+            logicaCliente.Eliminar(Convert.ToInt32(txtId.Text));
+            if (!logicaCliente.Eliminar(Convert.ToInt32(txtId.Text)))
+            {
+                MessageBox.Show("No se eliminó el cliente");
+            }
+            else { MessageBox.Show("Si eliminó el cliente correctamente."); }
+            logicaCliente.CargarDatos(Grilla);
         }
     }
 }

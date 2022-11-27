@@ -4,18 +4,14 @@
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
-        public string Tipo { get; set; }
-        public double PrecioVenta { get; set; }
-        public double PrecioCompra { get; set; }
-        public int Minimo { get; set; }
-        public int Maximo { get; set; }
-        public string Codigo { get; set; }
+        public string Precio { get; set; }
         public double Stock { get; set; }
-        public double Precio { get; set; }
+        public double Id_factura { get; set; }
+   
 
         public override string ToString()
         {
-            return $"{Id};{Nombre};{Tipo};{PrecioVenta};{PrecioCompra};{Minimo};{Maximo};{Codigo}";
+            return $"{Id};{Nombre};{Precio};{Stock};{Id_factura}";
         }
     }
 }

@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnElimna = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtDIreccion = new System.Windows.Forms.TextBox();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -51,8 +53,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCargar = new System.Windows.Forms.Button();
             this.btnInsertar = new System.Windows.Forms.Button();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.btnElimna = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -68,7 +68,7 @@
             this.panel1.Controls.Add(this.txtTelefono);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.txtDIreccion);
+            this.panel1.Controls.Add(this.txtDireccion);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.txtNombre);
             this.panel1.Controls.Add(this.label7);
@@ -81,6 +81,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(549, 250);
             this.panel1.TabIndex = 22;
+            // 
+            // btnElimna
+            // 
+            this.btnElimna.Location = new System.Drawing.Point(436, 139);
+            this.btnElimna.Name = "btnElimna";
+            this.btnElimna.Size = new System.Drawing.Size(94, 49);
+            this.btnElimna.TabIndex = 32;
+            this.btnElimna.Text = "Eliminar";
+            this.btnElimna.UseVisualStyleBackColor = true;
+            this.btnElimna.Click += new System.EventHandler(this.btnElimna_Click);
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Location = new System.Drawing.Point(395, 83);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(149, 40);
+            this.btnActualizar.TabIndex = 31;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtEmail
             // 
@@ -115,16 +135,16 @@
             this.label5.TabIndex = 27;
             this.label5.Text = "Telefono";
             // 
-            // txtDIreccion
+            // txtDireccion
             // 
-            this.txtDIreccion.BackColor = System.Drawing.Color.White;
-            this.txtDIreccion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDIreccion.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDIreccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
-            this.txtDIreccion.Location = new System.Drawing.Point(8, 93);
-            this.txtDIreccion.Name = "txtDIreccion";
-            this.txtDIreccion.Size = new System.Drawing.Size(186, 30);
-            this.txtDIreccion.TabIndex = 25;
+            this.txtDireccion.BackColor = System.Drawing.Color.White;
+            this.txtDireccion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDireccion.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(12)))), ((int)(((byte)(12)))));
+            this.txtDireccion.Location = new System.Drawing.Point(8, 93);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(186, 30);
+            this.txtDireccion.TabIndex = 25;
             // 
             // label8
             // 
@@ -292,6 +312,8 @@
             // 
             // Grilla
             // 
+            this.Grilla.AllowUserToAddRows = false;
+            this.Grilla.AllowUserToDeleteRows = false;
             this.Grilla.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -340,26 +362,6 @@
             this.btnInsertar.UseVisualStyleBackColor = true;
             this.btnInsertar.Click += new System.EventHandler(this.btnInsertar_Click);
             // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Location = new System.Drawing.Point(395, 83);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(149, 40);
-            this.btnActualizar.TabIndex = 31;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnElimna
-            // 
-            this.btnElimna.Location = new System.Drawing.Point(436, 139);
-            this.btnElimna.Name = "btnElimna";
-            this.btnElimna.Size = new System.Drawing.Size(94, 49);
-            this.btnElimna.TabIndex = 32;
-            this.btnElimna.Text = "Eliminar";
-            this.btnElimna.UseVisualStyleBackColor = true;
-            this.btnElimna.Click += new System.EventHandler(this.btnElimna_Click);
-            // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
@@ -395,7 +397,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtDIreccion;
+        private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label7;

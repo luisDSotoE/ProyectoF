@@ -35,7 +35,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btn_Salir = new System.Windows.Forms.Button();
             this.panel_SudMenuFact = new System.Windows.Forms.Panel();
-            this.btn_Admin = new System.Windows.Forms.Button();
             this.btn_Facturar = new System.Windows.Forms.Button();
             this.btn_Fact = new System.Windows.Forms.Button();
             this.panelSudMenuInicio = new System.Windows.Forms.Panel();
@@ -133,7 +132,6 @@
             // panel_SudMenuFact
             // 
             this.panel_SudMenuFact.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel_SudMenuFact.Controls.Add(this.btn_Admin);
             this.panel_SudMenuFact.Controls.Add(this.btn_Facturar);
             this.panel_SudMenuFact.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_SudMenuFact.Location = new System.Drawing.Point(0, 282);
@@ -141,23 +139,6 @@
             this.panel_SudMenuFact.Size = new System.Drawing.Size(250, 99);
             this.panel_SudMenuFact.TabIndex = 4;
             this.panel_SudMenuFact.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_SudMenuFact_Paint);
-            // 
-            // btn_Admin
-            // 
-            this.btn_Admin.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_Admin.FlatAppearance.BorderSize = 0;
-            this.btn_Admin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
-            this.btn_Admin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btn_Admin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Admin.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Admin.Location = new System.Drawing.Point(0, 50);
-            this.btn_Admin.Name = "btn_Admin";
-            this.btn_Admin.Size = new System.Drawing.Size(250, 50);
-            this.btn_Admin.TabIndex = 1;
-            this.btn_Admin.Text = "Administrar pedidos";
-            this.btn_Admin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Admin.UseVisualStyleBackColor = true;
-            this.btn_Admin.Click += new System.EventHandler(this.btn_Admin_Click);
             // 
             // btn_Facturar
             // 
@@ -275,7 +256,7 @@
             // 
             // Programa
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1102, 703);
             this.Controls.Add(this.PanelGeneral);
@@ -308,7 +289,6 @@
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Button btn_Fact;
         private System.Windows.Forms.Panel panel_SudMenuFact;
-        private System.Windows.Forms.Button btn_Admin;
         private System.Windows.Forms.Button btn_Facturar;
         private System.Windows.Forms.Button btn_Salir;
         private System.Windows.Forms.PictureBox pictureBox1;

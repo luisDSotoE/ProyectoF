@@ -64,20 +64,20 @@ namespace Presentacion
 
         private void btn_Mercancia_Click(object sender, EventArgs e)
         {
-            IngMercancia Frm = new IngMercancia();
-            abrirForm(Frm);
-            Frm.TopLevel = false;
-            PanelGeneral.Controls.Add(Frm);
-            Frm.Show();
+            //IngMercancia Frm = new IngMercancia();
+            //abrirForm(Frm);
+            //Frm.TopLevel = false;
+            //PanelGeneral.Controls.Add(Frm);
+            //Frm.Show();
         }
 
         private void btn_costos_Click(object sender, EventArgs e)
         {
-            Costos Frm = new Costos();
-            abrirForm(Frm);
-            Frm.TopLevel = false;
-            PanelGeneral.Controls.Add(Frm);
-            Frm.Show();
+            //Costos Frm = new Costos();
+            //abrirForm(Frm);
+            //Frm.TopLevel = false;
+            //PanelGeneral.Controls.Add(Frm);
+            //Frm.Show();
         }
 
         private void btn_audMovimietos_Click(object sender, EventArgs e)
@@ -128,20 +128,20 @@ namespace Presentacion
 
         private void btn_Admin_Click(object sender, EventArgs e)
         {
-            Pedidos Frm = new Pedidos();
-            abrirForm(Frm);
-            Frm.TopLevel = false;
-            PanelGeneral.Controls.Add(Frm);
-            Frm.Show();
+            //Pedidos Frm = new Pedidos();
+            //abrirForm(Frm);
+            //Frm.TopLevel = false;
+            //PanelGeneral.Controls.Add(Frm);
+            //Frm.Show();
         }
 
         private void btn_Despachar_Click(object sender, EventArgs e)
         {
-            DesMercancia Frm = new DesMercancia();
-            abrirForm(Frm);
-            Frm.TopLevel = false;
-            PanelGeneral.Controls.Add(Frm);
-            Frm.Show();
+            //DesMercancia Frm = new DesMercancia();
+            //abrirForm(Frm);
+            //Frm.TopLevel = false;
+            //PanelGeneral.Controls.Add(Frm);
+            //Frm.Show();
         }
 
         private void btn_audmovimientos_Click(object sender, EventArgs e)
@@ -160,11 +160,11 @@ namespace Presentacion
 
         private void btn_SM_Click(object sender, EventArgs e)
         {
-            SemillasyMateriales Frm = new SemillasyMateriales();
-            abrirForm(Frm);
-            Frm.TopLevel = false;
-            PanelGeneral.Controls.Add(Frm);
-            Frm.Show();
+            //SemillasyMateriales Frm = new SemillasyMateriales();
+            //abrirForm(Frm);
+            //Frm.TopLevel = false;
+            //PanelGeneral.Controls.Add(Frm);
+            //Frm.Show();
         }
 
         private void btn_Maquinaria_Click(object sender, EventArgs e)

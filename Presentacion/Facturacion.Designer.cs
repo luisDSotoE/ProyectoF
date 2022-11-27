@@ -34,7 +34,7 @@
             this.labProducto = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.CargarDatos = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.grilla = new System.Windows.Forms.DataGridView();
             this.txtIdC = new System.Windows.Forms.TextBox();
             this.txtFecha = new System.Windows.Forms.TextBox();
             this.txtIdP = new System.Windows.Forms.TextBox();
@@ -44,7 +44,7 @@
             this.btnInsertar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // txtIdF
@@ -74,6 +74,7 @@
             this.btnGuardaarFac.TabIndex = 20;
             this.btnGuardaarFac.Text = "Guardar";
             this.btnGuardaarFac.UseVisualStyleBackColor = true;
+            this.btnGuardaarFac.Click += new System.EventHandler(this.btnGuardaarFac_Click);
             // 
             // labProducto
             // 
@@ -104,16 +105,20 @@
             this.CargarDatos.UseVisualStyleBackColor = true;
             this.CargarDatos.Click += new System.EventHandler(this.CargarDatos_Click);
             // 
-            // dataGridView2
+            // grilla
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(12, 471);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(828, 220);
-            this.dataGridView2.TabIndex = 28;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            this.grilla.AllowUserToAddRows = false;
+            this.grilla.AllowUserToDeleteRows = false;
+            this.grilla.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grilla.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grilla.Location = new System.Drawing.Point(12, 471);
+            this.grilla.Name = "grilla";
+            this.grilla.RowHeadersWidth = 51;
+            this.grilla.RowTemplate.Height = 24;
+            this.grilla.Size = new System.Drawing.Size(828, 220);
+            this.grilla.TabIndex = 28;
+            this.grilla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // txtIdC
             // 
@@ -210,7 +215,7 @@
             this.Controls.Add(this.txtIdP);
             this.Controls.Add(this.txtFecha);
             this.Controls.Add(this.txtIdC);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.grilla);
             this.Controls.Add(this.CargarDatos);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtIdF);
@@ -221,7 +226,8 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Facturacion";
             this.Text = "Form2";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.Load += new System.EventHandler(this.Facturacion_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.grilla)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,7 +240,7 @@
         private System.Windows.Forms.Label labProducto;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button CargarDatos;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView grilla;
         private System.Windows.Forms.TextBox txtIdC;
         private System.Windows.Forms.TextBox txtFecha;
         private System.Windows.Forms.TextBox txtIdP;

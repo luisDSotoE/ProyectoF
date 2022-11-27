@@ -267,29 +267,7 @@ namespace Presentacion.Formularios
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
-                ora.Open();
-                OracleCommand comando = new OracleCommand("INSERTAR3", ora);
-                comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("Nom", OracleType.VarChar).Value = txtNombre.Text;
-                comando.Parameters.Add("precio", OracleType.VarChar).Value = txtPrecio.Text;
-                comando.Parameters.Add("stock", OracleType.VarChar).Value = txtStock.Text;
-                comando.Parameters.Add("idf", OracleType.Number).Value = txtIdf.Text;
-                comando.ExecuteNonQuery();
-                MessageBox.Show("CLIENTE insertada");
-                ora.Close();
-
-
-            }
-            catch (Exception ex)
-            {
-
-
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            ora.Close();
+           
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)

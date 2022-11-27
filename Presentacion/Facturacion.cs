@@ -1,5 +1,7 @@
 ﻿using DocumentFormat.OpenXml.Office2010.Excel;
 using DocumentFormat.OpenXml.Wordprocessing;
+using Entidades;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +15,8 @@ using System.Windows.Forms;
 
 namespace Presentacion
 {
+
+
     public partial class Facturacion : Form
     {
         OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
@@ -21,10 +25,12 @@ namespace Presentacion
             InitializeComponent();
         }
 
-        private void CargarDatos_Click(object sender, EventArgs e)
-        
+        private L_Factura logicaFactura = new L_Factura();
 
-            {
+        private void CargarDatos_Click(object sender, EventArgs e)
+
+
+        {
             OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
             ora.Open();
             OracleCommand comando = new OracleCommand("seleccionarFACTURA", ora);
@@ -35,7 +41,7 @@ namespace Presentacion
             adaptador.SelectCommand = comando;
             DataTable tabla = new DataTable();
             adaptador.Fill(tabla);
-            dataGridView2.DataSource = tabla;
+            grilla.DataSource = tabla;
 
         }
 
@@ -57,29 +63,11 @@ namespace Presentacion
         private void btnInsertar_Click(object sender, EventArgs e)
         {
 
-            try
-            {
-                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
-                ora.Open();
-                OracleCommand comando = new OracleCommand("INSERTAR2", ora);
-                comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("idc", OracleType.Number).Value = txtIdC.Text;
-                comando.Parameters.Add("fecha", OracleType.VarChar).Value = txtFecha.Text;
-                comando.Parameters.Add("Idp", OracleType.Number).Value = txtIdP.Text;
-                comando.ExecuteNonQuery();
-                MessageBox.Show("FACTURA insertada");
-                ora.Close();
-
-
-            }
-            catch (Exception ex)
-            {
-
-
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            ora.Close();
-
+            Factura factura = new Factura();
+            factura.Id_cliente = Convert.ToInt32(txtIdP.Text);
+            factura.Fecha = txtFecha.Text;
+            factura.Id_Producto = Convert.ToInt32(txtIdP.Text);  
+            logicaFactura.Insertar(factura);
         }
 
         private void txtIdC_TextChanged(object sender, EventArgs e)
@@ -94,39 +82,29 @@ namespace Presentacion
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
-                ora.Open();
-                OracleCommand comando = new OracleCommand("Actualizar2", ora);
-                comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.Parameters.Add("idf", OracleType.Number).Value = Convert.ToInt32(txtIdF.Text);
-                comando.Parameters.Add("idc", OracleType.Number).Value = Convert.ToInt32(txtIdC.Text);
-                comando.Parameters.Add("fecha", OracleType.VarChar).Value = txtFecha.Text;
-                comando.Parameters.Add("idp", OracleType.Number).Value = Convert.ToInt32(txtIdP.Text);
-                comando.ExecuteNonQuery();
-                MessageBox.Show("FACTURA actualizada");
-                ora.Close();
-            }
-            catch (Exception ex)
-            {
+            Factura factura = new Factura();
+            
+            logicaFactura.Actualizar(factura);  
 
-
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            ora.Close();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
-            ora.Open();
-            OracleCommand comando = new OracleCommand("eliminar2", ora);
-            comando.CommandType = System.Data.CommandType.StoredProcedure;
-            comando.Parameters.Add("idf", OracleType.Number).Value = Convert.ToInt32(txtIdF.Text);
-            comando.ExecuteNonQuery();
-            MessageBox.Show("Eliminado");
-            ora.Close();
+            Factura factura = new Factura();
+            factura.Id = int.Parse(txtIdF.Text);
+
+            logicaFactura.Eliminar(int.Parse(txtIdF.Text));
+
+        }
+
+        private void Facturacion_Load(object sender, EventArgs e)
+        {
+            logicaFactura.CargarDatos(grilla);
+        }
+
+        private void btnGuardaarFac_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
