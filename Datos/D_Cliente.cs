@@ -36,6 +36,7 @@ namespace Datos
                 return false;
             }
         }
+        
         /// <summary>
         /// Inserta los nuevos datos desde la aplicacion en la base de datos
         /// </summary>
@@ -55,6 +56,7 @@ namespace Datos
                 comando.Parameters.Add("Tel", OracleType.Number).Value = cliente.Telefono;
                 comando.Parameters.Add("email", OracleType.VarChar).Value = cliente.Correo;
                 comando.ExecuteNonQuery();
+                comando.CommandType = CommandType.StoredProcedure; 
                 oracleConexion.Close();
                 return true;
             }
@@ -63,6 +65,7 @@ namespace Datos
                 return false;
             }
         }
+        
         /// <summary>
         ///  elimina a un cliente por Id(Id_Cliente)
         /// </summary>
@@ -88,6 +91,7 @@ namespace Datos
             }
 
         }
+        
         /// <summary>
         /// hace la conexion y modifica los datos de una persona
         /// </summary>
@@ -95,9 +99,9 @@ namespace Datos
         /// <returns>Retorna una cadena modificada de la base de datos</returns>
         public bool Actualizar(Cliente cliente)
         {
+            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
             try
             {
-                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
                 ora.Open();
                 OracleCommand comando = new OracleCommand("Actualizar", ora);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -113,11 +117,10 @@ namespace Datos
             }
             catch (Exception)
             {
+                ora.Close();
                 return false;
                 throw;
             }
-
-
         }
     }
 }

@@ -41,42 +41,7 @@ namespace Presentacion
             adaptador.SelectCommand = comando;
             DataTable tabla = new DataTable();
             adaptador.Fill(tabla);
-            grilla.DataSource = tabla;
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnInsertar_Click(object sender, EventArgs e)
-        {
-
-            Factura factura = new Factura();
-            factura.Id_cliente = Convert.ToInt32(txtIdC.Text);
-            factura.Fecha = txtFecha.Text;
-            factura.Id_Producto = Convert.ToInt32(txtIdP.Text);  
-            logicaFactura.Insertar(factura);
-        }
-
-        private void txtIdC_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtFecha_TextChanged(object sender, EventArgs e)
-        {
+            Grilla.DataSource = tabla;
 
         }
 
@@ -99,12 +64,49 @@ namespace Presentacion
 
         private void Facturacion_Load(object sender, EventArgs e)
         {
-            logicaFactura.CargarDatos(grilla);
+            logicaFactura.CargarDatos(Grilla);
         }
 
-        private void btnGuardaarFac_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
+            Factura factura = new Factura();
+            factura.Id_cliente = Convert.ToInt32(txtIdC.Text);
+            factura.Fecha = txtFecha.Text;
+            factura.Id_Producto = Convert.ToInt32(txtIdP.Text);
+            logicaFactura.Insertar(factura);
+        }
 
+        private void txtConsultar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtConsultar.Text != "")
+            {
+                //Tabla
+                Grilla.CurrentCell = null;
+
+                foreach (DataGridViewRow row in Grilla.Rows) { row.Visible = false; }
+
+                foreach (DataGridViewRow row in Grilla.Rows)
+                {
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        if ((cell.Value.ToString().ToUpperInvariant().IndexOf(txtConsultar.Text.ToUpperInvariant()) == 0))
+                        {
+                            row.Visible = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                foreach (DataGridViewRow row in Grilla.Rows)
+                {
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        row.Visible = true;
+                    }
+                }
+            }
         }
     }
 }

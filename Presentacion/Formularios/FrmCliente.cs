@@ -16,7 +16,6 @@ namespace Presentacion.Formularios
             InitializeComponent();
         }
 
-        //public static ServicioClienteImpl clienteImpl = new ServicioClienteImpl();
         int posicion = 0;
 
         L_Cliente logicaCliente = new L_Cliente();
@@ -60,30 +59,35 @@ namespace Presentacion.Formularios
 
         private void FiltrarBusqueda()
         {
-            //if (txtConsultar.Text != "")
-            //{
-            //    //Tabla
-            //    Grilla.CurrentCell = null;
+            if (txtConsultar.Text != "")
+            {
+                //Tabla
+                Grilla.CurrentCell = null;
 
-            //    foreach (DataGridViewRow row in Grilla.Rows) { row.Visible = false; }
+                foreach (DataGridViewRow row in Grilla.Rows) { row.Visible = false; }
 
-            //    foreach (DataGridViewRow row in Grilla.Rows)
-            //    {
-            //        foreach (DataGridViewCell cell in row.Cells)
-            //        {
-            //            if ((cell.Value.ToString().ToUpperInvariant().IndexOf(txtConsultar.Text.ToUpperInvariant()) == 0))
-            //            {
-            //                row.Visible = true;
-            //                break;
-            //            }
-            //        }
-            //    }
-            //}
-            //else
-            //{
-            //    Grilla.DataSource = null;
-            //    //Grilla.DataSource = clienteImpl.Listar();
-            //}
+                foreach (DataGridViewRow row in Grilla.Rows)
+                {
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        if ((cell.Value.ToString().ToUpperInvariant().IndexOf(txtConsultar.Text.ToUpperInvariant()) == 0))
+                        {
+                            row.Visible = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                foreach (DataGridViewRow row in Grilla.Rows)
+                {
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        row.Visible = true;
+                    }
+                }
+            }
         }
 
         private void CrearCliente()
@@ -215,27 +219,6 @@ namespace Presentacion.Formularios
 
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            //if (clienteImpl.Listar().Count == 0)
-            //{
-            //    MessageBox.Show("No hay clientes registrados.", "Mensaje del sistema",
-            //    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
-            //else
-            //{
-            //    if (posicion < 0)
-            //    {
-            //        MessageBox.Show("Seleccione un registro.", "Mensaje del sistema",
-            //        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    }
-            //    else
-            //    {
-            //        //LocalizarRegistro(clienteImpl.Listar()[posicion]);
-            //        EliminarCliente();
-            //    }
-            //}
-        }
 
         private void FrmCliente_Load(object sender, EventArgs e)
         {
@@ -250,31 +233,6 @@ namespace Presentacion.Formularios
         private void txtDocumento_KeyPress(object sender, KeyPressEventArgs e)
         {
 
-        }
-
-        private void btnCargar_Click(object sender, EventArgs e)
-        {
-            logicaCliente.CargarDatos(Grilla);
-        }
-
-        private void btnInsertar_Click(object sender, EventArgs e)
-        {
-            Cliente cliente = new Cliente();
-            cliente.Nombres = txtNombre.Text;
-            cliente.Apellidos = txtApellido.Text;
-            cliente.Direccion = txtDireccion.Text;
-            cliente.Telefono = txtTelefono.Text;
-            cliente.Correo = txtEmail.Text;
-
-            logicaCliente.Insertar(cliente);
-
-            if (!logicaCliente.Insertar(cliente))
-            {
-                MessageBox.Show("No se insertó el cliente");
-            }
-            else { MessageBox.Show("Si se insertó el cliente"); }
-            Grilla.DataSource = null;
-            logicaCliente.CargarDatos(Grilla);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -308,13 +266,50 @@ namespace Presentacion.Formularios
 
         private void btnElimna_Click(object sender, EventArgs e)
         {
-            logicaCliente.Eliminar(Convert.ToInt32(txtId.Text));
-            if (!logicaCliente.Eliminar(Convert.ToInt32(txtId.Text)))
+            try
             {
-                MessageBox.Show("No se eliminó el cliente");
+                if (txtId.Text == "")
+                {
+                    MessageBox.Show("Ingrese el id del cliente que desea elimiar.");
+                    txtId.Select();
+                }
+                else
+                {
+                    logicaCliente.Eliminar(Convert.ToInt32(txtId.Text));
+                    if (!logicaCliente.Eliminar(Convert.ToInt32(txtId.Text)))
+                    {
+                        MessageBox.Show("No se eliminó el cliente");
+                    }
+                    else { MessageBox.Show("Si eliminó el cliente correctamente."); }
+                    logicaCliente.CargarDatos(Grilla);
+                }
             }
-            else { MessageBox.Show("Si eliminó el cliente correctamente."); }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Cliente cliente = new Cliente();
+            cliente.Nombres = txtNombre.Text;
+            cliente.Apellidos = txtApellido.Text;
+            cliente.Direccion = txtDireccion.Text;
+            cliente.Telefono = txtTelefono.Text;
+            cliente.Correo = txtEmail.Text;
+
+            logicaCliente.Insertar(cliente);
+
+            Grilla.DataSource = null;
             logicaCliente.CargarDatos(Grilla);
+        }
+
+        private void txtConsultar_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -18,10 +18,11 @@ namespace Presentacion.Formularios
 
         //public static ServicioProductoImpl productoImpl = new ServicioProductoImpl();
         int posicion = 0;
-
+        L_Producto productos = new L_Producto();
         private void FrmProductos_Load(object sender, EventArgs e)
         {
-            //Grilla.DataSource = productoImpl.Listar();
+
+            productos.CargarDatos(Grilla);
         }
 
         private bool Validacion()
@@ -85,8 +86,13 @@ namespace Presentacion.Formularios
             }
             else
             {
-                Grilla.DataSource = null;
-                //Grilla.DataSource = productoImpl.Listar();
+                foreach (DataGridViewRow row in Grilla.Rows)
+                {
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        row.Visible = true;
+                    }
+                }
             }
         }
 
@@ -310,6 +316,21 @@ namespace Presentacion.Formularios
         }
 
         private void txtIdp_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtConsultar_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
