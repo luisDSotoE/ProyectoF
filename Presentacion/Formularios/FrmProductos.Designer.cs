@@ -155,7 +155,7 @@
             this.label9.Size = new System.Drawing.Size(77, 23);
             this.label9.TabIndex = 38;
             this.label9.Text = "Buscar:";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
+
             // 
             // label2
             // 
@@ -177,7 +177,6 @@
             this.txtIdp.Name = "txtIdp";
             this.txtIdp.Size = new System.Drawing.Size(189, 30);
             this.txtIdp.TabIndex = 9;
-            this.txtIdp.TextChanged += new System.EventHandler(this.txtIdp_TextChanged);
             // 
             // txtConsultar
             // 
@@ -189,7 +188,6 @@
             this.txtConsultar.Name = "txtConsultar";
             this.txtConsultar.Size = new System.Drawing.Size(142, 30);
             this.txtConsultar.TabIndex = 37;
-            this.txtConsultar.TextChanged += new System.EventHandler(this.txtConsultar_TextChanged);
             this.txtConsultar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtConsultar_KeyPress);
             // 
             // panel1
@@ -211,7 +209,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(214, 376);
             this.panel1.TabIndex = 35;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // txtIdf
             // 

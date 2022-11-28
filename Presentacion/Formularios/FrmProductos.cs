@@ -273,7 +273,16 @@ namespace Presentacion.Formularios
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-           
+            Producto producto = new Producto();
+            producto.Nombre = txtNombre.Text;   
+            producto.Precio =txtPrecio.Text;
+            producto.Stock = Convert.ToDouble(txtStock.Text);
+            producto.Id_factura = Convert.ToDouble(txtIdf.Text);
+
+
+            productos.Insertar(producto);
+            productos.CargarDatos(Grilla);
+            
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -301,6 +310,8 @@ namespace Presentacion.Formularios
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             ora.Close();
+
+            productos.CargarDatos(Grilla);
         }
 
         private void btnEliminado_Click(object sender, EventArgs e)
@@ -313,27 +324,10 @@ namespace Presentacion.Formularios
             comando.ExecuteNonQuery();
             MessageBox.Show("Eliminado");
             ora.Close();
+
+            productos.CargarDatos(Grilla);
         }
 
-        private void txtIdp_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtConsultar_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
     
 }

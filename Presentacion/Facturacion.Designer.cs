@@ -173,6 +173,7 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.labProducto);
             this.panel1.Controls.Add(this.txtIdF);
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.txtIdC);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.txtFecha);
@@ -198,7 +199,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(252, 285);
+            this.button1.Location = new System.Drawing.Point(223, 170);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 35);
             this.button1.TabIndex = 40;
@@ -236,7 +237,6 @@
             this.ClientSize = new System.Drawing.Size(852, 703);
             this.Controls.Add(this.txtConsultar);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnEliminar);

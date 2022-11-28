@@ -53,7 +53,6 @@ namespace Datos
                 comando.Parameters.Add("fecha", OracleType.VarChar).Value = factura.Fecha;
                 comando.Parameters.Add("idp", OracleType.Number).Value = Convert.ToInt32(factura.Id_Producto);
                 comando.ExecuteNonQuery();
-                MessageBox.Show("FACTURA actualizada");
                 ora.Close();
                 return true;
             }

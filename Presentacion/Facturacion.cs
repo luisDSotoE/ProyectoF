@@ -48,9 +48,15 @@ namespace Presentacion
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             Factura factura = new Factura();
-            
-            logicaFactura.Actualizar(factura);  
+            factura.Id = Convert.ToInt32(txtIdF.Text);
+            factura.Id_cliente = Convert.ToInt32(txtIdC.Text);
+            factura.Fecha = txtFecha.Text;
+            factura.Id_Producto = Convert.ToInt32(txtIdC.Text);
 
+
+            logicaFactura.Actualizar(factura);
+            MessageBox.Show("factura actualizada correctamente");
+            logicaFactura.CargarDatos(Grilla);
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -59,6 +65,7 @@ namespace Presentacion
             factura.Id = int.Parse(txtIdF.Text);
 
             logicaFactura.Eliminar(int.Parse(txtIdF.Text));
+            logicaFactura.CargarDatos(Grilla);
 
         }
 
@@ -74,6 +81,7 @@ namespace Presentacion
             factura.Fecha = txtFecha.Text;
             factura.Id_Producto = Convert.ToInt32(txtIdP.Text);
             logicaFactura.Insertar(factura);
+            logicaFactura.CargarDatos(Grilla);
         }
 
         private void txtConsultar_KeyPress(object sender, KeyPressEventArgs e)
