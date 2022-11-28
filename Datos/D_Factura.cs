@@ -8,6 +8,11 @@ namespace Datos
 {
     public class D_Factura
     {
+        /// <summary>
+        /// Inserta los nuevos datos desde la aplicacion en la base de datos(Factura)
+        /// </summary>
+        /// <param name="factura"></param>
+        /// <returns>Retorna una cadena nueva creada por el usuario</returns>
         public bool Insertar(Factura factura)
         {
             try
@@ -30,7 +35,11 @@ namespace Datos
                 return true;
             }
         }
-
+        /// <summary>
+        /// Utiliza la Id(Id_cliente) para identificar y modificar una cadena
+        /// </summary>
+        /// <param name="factura"></param>
+        /// <returns>Retorna valores modificados</returns>
         public bool Actualizar(Factura factura)
         {
             try
@@ -54,7 +63,11 @@ namespace Datos
                 return false;
             }
         }
-
+        /// <summary>
+        /// Por medio de una Id(Id_Factura) elimina una cadena de la tabla Cliente
+        /// </summary>
+        /// <param name="IdFactura"></param>
+        /// <returns>Elimina la factura seleccionada</returns>
         public bool Eliminar(int IdFactura)
         {
             OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
@@ -67,7 +80,11 @@ namespace Datos
             ora.Close();
             return true;
         }
-
+        /// <summary>
+        /// Carga los datos en grilla
+        /// </summary>
+        /// <param name="grilla"></param>
+        /// <returns>Retorna una cadena de Datos Factura</returns>
         public bool CargarDatos(DataGridView grilla)
         {
             try

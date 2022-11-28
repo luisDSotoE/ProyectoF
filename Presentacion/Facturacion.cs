@@ -64,7 +64,7 @@ namespace Presentacion
         {
 
             Factura factura = new Factura();
-            factura.Id_cliente = Convert.ToInt32(txtIdP.Text);
+            factura.Id_cliente = Convert.ToInt32(txtIdC.Text);
             factura.Fecha = txtFecha.Text;
             factura.Id_Producto = Convert.ToInt32(txtIdP.Text);  
             logicaFactura.Insertar(factura);

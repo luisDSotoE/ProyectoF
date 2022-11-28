@@ -76,7 +76,7 @@
             this.sub3.BackColor = System.Drawing.Color.Gainsboro;
             this.sub3.Controls.Add(this.button4);
             this.sub3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.sub3.Location = new System.Drawing.Point(0, 421);
+            this.sub3.Location = new System.Drawing.Point(0, 368);
             this.sub3.Name = "sub3";
             this.sub3.Size = new System.Drawing.Size(250, 47);
             this.sub3.TabIndex = 8;
@@ -107,11 +107,11 @@
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(89)))), ((int)(((byte)(37)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(0, 381);
+            this.button1.Location = new System.Drawing.Point(0, 328);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(250, 40);
             this.button1.TabIndex = 7;
-            this.button1.Text = "Personas";
+            this.button1.Text = "PERSONA";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -136,7 +136,7 @@
             this.panel_SudMenuFact.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_SudMenuFact.Location = new System.Drawing.Point(0, 282);
             this.panel_SudMenuFact.Name = "panel_SudMenuFact";
-            this.panel_SudMenuFact.Size = new System.Drawing.Size(250, 99);
+            this.panel_SudMenuFact.Size = new System.Drawing.Size(250, 46);
             this.panel_SudMenuFact.TabIndex = 4;
             this.panel_SudMenuFact.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_SudMenuFact_Paint);
             // 
@@ -170,7 +170,7 @@
             this.btn_Fact.Name = "btn_Fact";
             this.btn_Fact.Size = new System.Drawing.Size(250, 40);
             this.btn_Fact.TabIndex = 3;
-            this.btn_Fact.Text = "FACTURA Y CONTROL DE INVENTARIO";
+            this.btn_Fact.Text = "FACTURA";
             this.btn_Fact.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Fact.UseVisualStyleBackColor = false;
             this.btn_Fact.Click += new System.EventHandler(this.btn_Fact_Click);

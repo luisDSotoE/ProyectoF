@@ -8,6 +8,11 @@ namespace Datos
 {
     public class D_Producto
     {
+        /// <summary>
+        /// Inserta una cadena y inicializa con una nueva Id generada automaticamente
+        /// </summary>
+        /// <param name="producto"></param>
+        /// <returns></returns>
         public bool Insertar(Producto producto)
         {
             try
@@ -31,7 +36,11 @@ namespace Datos
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        /// <summary>
+        /// Utilizando la Id(Id_Producto) identifica y modifica una cadena
+        /// </summary>
+        /// <param name="producto"></param>
+        /// <returns>Retorna valores modificados</returns>
         public bool Actualizar(Producto producto)
         {
             try
@@ -57,7 +66,11 @@ namespace Datos
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        /// <summary>
+        /// Mediante una Id(Id_Producto) elimina una cadena de la base de datos
+        /// </summary>
+        /// <param name="idProducto"></param>
+        /// <returns>elimina la cadena</returns>
         public bool Eliminar(int idProducto)
         {
             OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
@@ -70,7 +83,11 @@ namespace Datos
             ora.Close();
             return true;
         }
-
+        /// <summary>
+        /// Carga los Datos que se encuentra en la base de Datos
+        /// </summary>
+        /// <param name="grilla"></param>
+        /// <returns>Retorna todos los datos de la tabla</returns>
         public bool CargarDatos(DataGridView grilla)
         {
 

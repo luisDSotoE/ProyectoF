@@ -4,6 +4,9 @@ using System.Windows.Forms;
 
 namespace Negocio
 {
+    /// <summary>
+    /// Clase Factura en logica
+    /// </summary>
     public class L_Factura
     {
         D_Factura datosFactura = new D_Factura();

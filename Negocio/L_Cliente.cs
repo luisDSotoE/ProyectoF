@@ -6,6 +6,9 @@ namespace Negocio
 {
     public class L_Cliente
     {
+        /// <summary>
+        /// 
+        /// </summary>
         D_Cliente datosClientes = new D_Cliente();
 
         public bool Insertar(Cliente cliente)

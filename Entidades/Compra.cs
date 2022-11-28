@@ -2,6 +2,9 @@
 
 namespace Entidades
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Compra
     {
         public int Id { get; set; }

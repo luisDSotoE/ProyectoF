@@ -8,6 +8,11 @@ namespace Datos
 {
     public class D_Cliente
     {
+         /// <summary>
+         /// Obtiene los datos de la base de datos e implementa en la grilla
+         /// </summary>
+         /// <param name="grilla"></param>
+         /// <returns>Retorna una cadena de Datos de Cliente</returns>
         public bool CargarDatos(DataGridView grilla)
         {
             try
@@ -31,7 +36,11 @@ namespace Datos
                 return false;
             }
         }
-
+        /// <summary>
+        /// Inserta los nuevos datos desde la aplicacion en la base de datos
+        /// </summary>
+        /// <param name="cliente"></param>
+        /// <returns>retorna una cadena de Datos de cliente e Inicializa con una nueva Id(Id_Cliente)</returns>
         public bool Insertar(Cliente cliente)
         {
             try
@@ -54,7 +63,11 @@ namespace Datos
                 return false;
             }
         }
-
+        /// <summary>
+        ///  elimina a un cliente por Id(Id_Cliente)
+        /// </summary>
+        /// <param name="idCliente"></param>
+        /// <returns>Elimina al cliente seleccionado</returns>
         public bool Eliminar(int idCliente)
         {
             try
@@ -75,7 +88,11 @@ namespace Datos
             }
 
         }
-
+        /// <summary>
+        /// hace la conexion y modifica los datos de una persona
+        /// </summary>
+        /// <param name="cliente"></param>
+        /// <returns>Retorna una cadena modificada de la base de datos</returns>
         public bool Actualizar(Cliente cliente)
         {
             try
