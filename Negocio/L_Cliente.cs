@@ -19,7 +19,7 @@ namespace Negocio
         /// LLama al metodo insertar de cliente
         /// </summary>
         /// <param name="cliente"></param>
-        /// <returns>Retorna Daotos insertados</returns>
+        /// <returns>Retorna Datos insertados</returns>
         public bool Insertar(Cliente cliente)
         {
             return datosClientes.Insertar(cliente);
@@ -47,7 +47,7 @@ namespace Negocio
         /// LLama metodo de Actualizar de CLiente
         /// </summary>
         /// <param name="cliente"></param>
-        /// <returns>Retorna Datps modificados</returns>
+        /// <returns>Retorna Datos modificados</returns>
         public bool Actualizar(Cliente cliente)
         {
             return datosClientes.Actualizar(cliente);
