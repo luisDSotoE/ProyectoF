@@ -17,16 +17,16 @@ namespace Datos
         {
             try
             {
-                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
+                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
                 ora.Open();
-                OracleCommand comando = new OracleCommand("INSERTAR3", ora);
+                OracleCommand comando = new OracleCommand("INSERTARP", ora);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 comando.Parameters.Add("Nom", OracleType.VarChar).Value = producto.Nombre;
                 comando.Parameters.Add("precio", OracleType.VarChar).Value = producto.Precio;
                 comando.Parameters.Add("stock", OracleType.VarChar).Value = producto.Stock;
                 comando.Parameters.Add("idf", OracleType.Number).Value = producto.Id_factura;
                 comando.ExecuteNonQuery();
-                MessageBox.Show("CLIENTE insertada");
+                MessageBox.Show("producto insertado");
                 ora.Close();
                 return true;
             }
@@ -45,9 +45,9 @@ namespace Datos
         {
             try
             {
-                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
+                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
                 ora.Open();
-                OracleCommand comando = new OracleCommand("Actualizar3", ora);
+                OracleCommand comando = new OracleCommand("Actualizarp", ora);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 comando.Parameters.Add("idp", OracleType.Number).Value = Convert.ToInt32(producto.Id);
                 comando.Parameters.Add("nom", OracleType.VarChar).Value = producto.Nombre;
@@ -73,9 +73,9 @@ namespace Datos
         /// <returns>elimina la cadena</returns>
         public bool Eliminar(int idProducto)
         {
-            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
+            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
             ora.Open();
-            OracleCommand comando = new OracleCommand("eliminar3", ora);
+            OracleCommand comando = new OracleCommand("eliminarp", ora);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
             comando.Parameters.Add("idp", OracleType.Number).Value = Convert.ToInt32(idProducto);
             comando.ExecuteNonQuery();
@@ -93,7 +93,7 @@ namespace Datos
 
             try
             {
-                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
+                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
                 ora.Open();
                 OracleCommand comando = new OracleCommand("seleccionarPRODUCTO", ora);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;

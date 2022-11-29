@@ -17,7 +17,7 @@ namespace Datos
         {
             try
             {
-                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
+                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
                 ora.Open();
                 OracleCommand comando = new OracleCommand("seleccionarCLIENTE", ora);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -46,9 +46,9 @@ namespace Datos
         {
             try
             {
-                OracleConnection oracleConexion = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
+                OracleConnection oracleConexion = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
                 oracleConexion.Open();
-                OracleCommand comando = new OracleCommand("INSERTAR", oracleConexion);
+                OracleCommand comando = new OracleCommand("INSERTARC", oracleConexion);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 comando.Parameters.Add("Nom", OracleType.VarChar).Value = cliente.Nombres;
                 comando.Parameters.Add("Ape", OracleType.VarChar).Value = cliente.Apellidos;
@@ -76,9 +76,9 @@ namespace Datos
         {
             try
             {
-                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
+                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
                 ora.Open();
-                OracleCommand comando = new OracleCommand("eliminar", ora);
+                OracleCommand comando = new OracleCommand("eliminarc", ora);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 comando.Parameters.Add("idc", OracleType.Number).Value = idCliente;
                 comando.ExecuteNonQuery();
@@ -100,11 +100,11 @@ namespace Datos
         /// <returns>Retorna una cadena modificada de la base de datos</returns>
         public bool Actualizar(Cliente cliente)
         {
-            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
+            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
             try
             {
                 ora.Open();
-                OracleCommand comando = new OracleCommand("Actualizar", ora);
+                OracleCommand comando = new OracleCommand("Actualizarc", ora);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 comando.Parameters.Add("idc", OracleType.Number).Value = cliente.Id;
                 comando.Parameters.Add("Nom", OracleType.VarChar).Value = cliente.Nombres;

@@ -19,7 +19,7 @@ namespace Presentacion
 
     public partial class Facturacion : Form
     {
-        OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
+        OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
         public Facturacion()
         {
             InitializeComponent();
@@ -31,7 +31,7 @@ namespace Presentacion
 
 
         {
-            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
+            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
             ora.Open();
             OracleCommand comando = new OracleCommand("seleccionarFACTURA", ora);
             comando.CommandType = System.Data.CommandType.StoredProcedure;

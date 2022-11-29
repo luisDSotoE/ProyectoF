@@ -17,9 +17,9 @@ namespace Datos
         {
             try
             {
-                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
+                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
                 ora.Open();
-                OracleCommand comando = new OracleCommand("INSERTAR2", ora);
+                OracleCommand comando = new OracleCommand("INSERTARF", ora);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 comando.Parameters.Add("idc", OracleType.Number).Value = factura.Id_cliente;
                 comando.Parameters.Add("fecha", OracleType.VarChar).Value = factura.Fecha;
@@ -44,9 +44,9 @@ namespace Datos
         {
             try
             {
-                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
+                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
                 ora.Open();
-                OracleCommand comando = new OracleCommand("Actualizar2", ora);
+                OracleCommand comando = new OracleCommand("Actualizarf", ora);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 comando.Parameters.Add("idf", OracleType.Number).Value = Convert.ToInt32(factura.Id);
                 comando.Parameters.Add("idc", OracleType.Number).Value = Convert.ToInt32(factura.Id_cliente);
@@ -69,9 +69,9 @@ namespace Datos
         /// <returns>Elimina la factura seleccionada</returns>
         public bool Eliminar(int IdFactura)
         {
-            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
+            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
             ora.Open();
-            OracleCommand comando = new OracleCommand("eliminar2", ora);
+            OracleCommand comando = new OracleCommand("eliminarf", ora);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
             comando.Parameters.Add("idf", OracleType.Number).Value = Convert.ToInt32(IdFactura);
             comando.ExecuteNonQuery();
@@ -88,7 +88,7 @@ namespace Datos
         {
             try
             {
-                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
+                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
                 ora.Open();
                 OracleCommand comando = new OracleCommand("seleccionarFACTURA", ora);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;

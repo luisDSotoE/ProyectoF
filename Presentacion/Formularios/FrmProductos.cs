@@ -8,9 +8,11 @@ using System.Windows.Forms;
 
 namespace Presentacion.Formularios
 {
+    [System.Obsolete("OracleConnection has been deprecated. http://go.microsoft.com/fwlink/?LinkID=144260", false)]
+    
     public partial class FrmProductos : Form
     {
-        OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
+        OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=admin;USER ID = admin ");
         public FrmProductos()
         {
             InitializeComponent();
@@ -253,7 +255,7 @@ namespace Presentacion.Formularios
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
+            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
             ora.Open();
             OracleCommand comando = new OracleCommand("seleccionarPRODUCTO", ora);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -278,10 +280,10 @@ namespace Presentacion.Formularios
             producto.Precio =txtPrecio.Text;
             producto.Stock = Convert.ToDouble(txtStock.Text);
             producto.Id_factura = Convert.ToDouble(txtIdf.Text);
-
-
             productos.Insertar(producto);
             productos.CargarDatos(Grilla);
+
+
             
         }
 
@@ -289,9 +291,9 @@ namespace Presentacion.Formularios
         {
             try
             {
-                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
+                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
                 ora.Open();
-                OracleCommand comando = new OracleCommand("Actualizar3", ora);
+                OracleCommand comando = new OracleCommand("Actualizarp", ora);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 comando.Parameters.Add("idp", OracleType.Number).Value = Convert.ToInt32(txtIdp.Text);
                 comando.Parameters.Add("nom", OracleType.VarChar).Value = txtNombre.Text;
@@ -316,9 +318,9 @@ namespace Presentacion.Formularios
 
         private void btnEliminado_Click(object sender, EventArgs e)
         {
-            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
+            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
             ora.Open();
-            OracleCommand comando = new OracleCommand("eliminar3", ora);
+            OracleCommand comando = new OracleCommand("eliminarp", ora);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
             comando.Parameters.Add("idp", OracleType.Number).Value = Convert.ToInt32(txtIdp.Text);
             comando.ExecuteNonQuery();
