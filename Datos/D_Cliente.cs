@@ -56,7 +56,8 @@ namespace Datos
                 comando.Parameters.Add("Tel", OracleType.Number).Value = cliente.Telefono;
                 comando.Parameters.Add("email", OracleType.VarChar).Value = cliente.Correo;
                 comando.ExecuteNonQuery();
-                comando.CommandType = CommandType.StoredProcedure; 
+                comando.CommandType = CommandType.StoredProcedure;
+                MessageBox.Show("CLIENTE insertado");
                 oracleConexion.Close();
                 return true;
             }
