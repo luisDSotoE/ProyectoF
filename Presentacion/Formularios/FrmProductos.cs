@@ -12,7 +12,7 @@ namespace Presentacion.Formularios
     
     public partial class FrmProductos : Form
     {
-        OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=admin;USER ID = admin ");
+        OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
         public FrmProductos()
         {
             InitializeComponent();
@@ -255,7 +255,7 @@ namespace Presentacion.Formularios
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
+            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
             ora.Open();
             OracleCommand comando = new OracleCommand("seleccionarPRODUCTO", ora);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -279,9 +279,11 @@ namespace Presentacion.Formularios
             producto.Nombre = txtNombre.Text;   
             producto.Precio =txtPrecio.Text;
             producto.Stock = Convert.ToDouble(txtStock.Text);
-            producto.Id_factura = Convert.ToDouble(txtIdf.Text);
             productos.Insertar(producto);
             productos.CargarDatos(Grilla);
+            txtNombre.Text = "";
+            txtPrecio.Text = "";
+            txtStock.Text = "";
 
 
             
@@ -291,7 +293,7 @@ namespace Presentacion.Formularios
         {
             try
             {
-                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
+                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
                 ora.Open();
                 OracleCommand comando = new OracleCommand("Actualizarp", ora);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -299,7 +301,6 @@ namespace Presentacion.Formularios
                 comando.Parameters.Add("nom", OracleType.VarChar).Value = txtNombre.Text;
                 comando.Parameters.Add("precio", OracleType.Number).Value = Convert.ToInt32(txtPrecio.Text);
                 comando.Parameters.Add("stock", OracleType.Number).Value = Convert.ToInt32(txtStock.Text);
-                comando.Parameters.Add("idf", OracleType.Number).Value = Convert.ToInt32(txtIdf.Text);
                 comando.ExecuteNonQuery();
                 MessageBox.Show("PRODUCTO actualizada");
                 ora.Close();
@@ -314,11 +315,15 @@ namespace Presentacion.Formularios
             ora.Close();
 
             productos.CargarDatos(Grilla);
+            txtIdp.Text = "";
+            txtNombre.Text = "";
+            txtPrecio.Text = "";
+            txtStock.Text = "";
         }
 
         private void btnEliminado_Click(object sender, EventArgs e)
         {
-            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
+            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
             ora.Open();
             OracleCommand comando = new OracleCommand("eliminarp", ora);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -328,6 +333,7 @@ namespace Presentacion.Formularios
             ora.Close();
 
             productos.CargarDatos(Grilla);
+            txtIdp.Text = "";
         }
 
     }

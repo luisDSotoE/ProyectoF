@@ -42,6 +42,8 @@ namespace Presentacion.Formularios
                 else
                 {
                     MessageBox.Show("Las credenciales son incorrectas.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtUsuario.Text = "";
+                    txtContraseña.Text = "";
                 }
             }
         }
@@ -54,6 +56,16 @@ namespace Presentacion.Formularios
         private void InicioSesion_Load(object sender, EventArgs e)
         {
             txtUsuario.Focus();
+        }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtContraseña_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

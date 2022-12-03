@@ -17,7 +17,7 @@ namespace Datos
         {
             try
             {
-                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
+                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
                 ora.Open();
                 OracleCommand comando = new OracleCommand("INSERTARF", ora);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -44,7 +44,7 @@ namespace Datos
         {
             try
             {
-                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
+                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
                 ora.Open();
                 OracleCommand comando = new OracleCommand("Actualizarf", ora);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -69,7 +69,7 @@ namespace Datos
         /// <returns>Elimina la factura seleccionada</returns>
         public bool Eliminar(int IdFactura)
         {
-            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
+            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
             ora.Open();
             OracleCommand comando = new OracleCommand("eliminarf", ora);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -88,7 +88,7 @@ namespace Datos
         {
             try
             {
-                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
+                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
                 ora.Open();
                 OracleCommand comando = new OracleCommand("seleccionarFACTURA", ora);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;

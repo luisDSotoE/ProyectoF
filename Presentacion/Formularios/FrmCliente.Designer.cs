@@ -66,6 +66,8 @@
             this.panel1.Controls.Add(this.txtDireccion);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.txtNombre);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.txtId);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txtApellido);
@@ -150,6 +152,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(186, 30);
             this.txtNombre.TabIndex = 22;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDocumento_KeyPress);
             // 
             // label7
@@ -188,19 +191,19 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(12, 300);
+            this.label2.Location = new System.Drawing.Point(30, 145);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 23);
+            this.label2.Size = new System.Drawing.Size(27, 23);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Buscar id:";
+            this.label2.Text = "Id";
             // 
             // txtId
             // 
-            this.txtId.BackColor = System.Drawing.Color.SeaGreen;
+            this.txtId.BackColor = System.Drawing.Color.White;
             this.txtId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtId.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.ForeColor = System.Drawing.Color.White;
-            this.txtId.Location = new System.Drawing.Point(116, 295);
+            this.txtId.Location = new System.Drawing.Point(63, 145);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(150, 30);
             this.txtId.TabIndex = 9;
@@ -310,8 +313,6 @@
             this.Controls.Add(this.txtConsultar);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.txtId);
-            this.Controls.Add(this.label2);
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);

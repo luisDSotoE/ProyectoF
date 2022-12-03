@@ -10,7 +10,7 @@ namespace Presentacion.Formularios
 {
     public partial class FrmCliente : Form
     {
-        OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=factura;USER ID = factura ");
+        OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
         public FrmCliente()
         {
             InitializeComponent();
@@ -252,6 +252,12 @@ namespace Presentacion.Formularios
             }
             else { MessageBox.Show("Cliente actualizado correctamente"); }
             logicaCliente.CargarDatos(Grilla);
+            txtId.Text = "";
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtDireccion.Text = "";
+            txtTelefono.Text = "";
+            txtEmail.Text = "";
         }
 
         private void txtApellido_TextChanged(object sender, EventArgs e)
@@ -282,6 +288,7 @@ namespace Presentacion.Formularios
                     }
                     else { MessageBox.Show("Si eliminó el cliente correctamente."); }
                     logicaCliente.CargarDatos(Grilla);
+                    txtId.Text = "";
                 }
             }
             catch (Exception ex)
@@ -305,9 +312,19 @@ namespace Presentacion.Formularios
 
             Grilla.DataSource = null;
             logicaCliente.CargarDatos(Grilla);
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtDireccion.Text ="";
+            txtTelefono.Text = "";
+            txtEmail.Text = "";
         }
 
         private void txtConsultar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
         {
 
         }

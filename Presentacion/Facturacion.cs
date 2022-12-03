@@ -19,7 +19,7 @@ namespace Presentacion
 
     public partial class Facturacion : Form
     {
-        OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
+        OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
         public Facturacion()
         {
             InitializeComponent();
@@ -31,7 +31,7 @@ namespace Presentacion
 
 
         {
-            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
+            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
             ora.Open();
             OracleCommand comando = new OracleCommand("seleccionarFACTURA", ora);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -57,6 +57,10 @@ namespace Presentacion
             logicaFactura.Actualizar(factura);
             MessageBox.Show("factura actualizada correctamente");
             logicaFactura.CargarDatos(Grilla);
+            txtIdF.Text = "";
+            txtIdC.Text = "";
+            txtFecha.Text = "";
+            txtIdP.Text = "";
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -66,6 +70,7 @@ namespace Presentacion
 
             logicaFactura.Eliminar(int.Parse(txtIdF.Text));
             logicaFactura.CargarDatos(Grilla);
+            txtIdF.Text = "";
 
         }
 
@@ -82,6 +87,9 @@ namespace Presentacion
             factura.Id_Producto = Convert.ToInt32(txtIdP.Text);
             logicaFactura.Insertar(factura);
             logicaFactura.CargarDatos(Grilla);
+            txtIdF.Text = "";
+            txtFecha.Text = "";
+            txtIdP.Text = "";
         }
 
         private void txtConsultar_KeyPress(object sender, KeyPressEventArgs e)

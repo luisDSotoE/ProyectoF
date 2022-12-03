@@ -17,7 +17,7 @@ namespace Datos
         {
             try
             {
-                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
+                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
                 ora.Open();
                 OracleCommand comando = new OracleCommand("seleccionarCLIENTE", ora);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -46,7 +46,7 @@ namespace Datos
         {
             try
             {
-                OracleConnection oracleConexion = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
+                OracleConnection oracleConexion = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
                 oracleConexion.Open();
                 OracleCommand comando = new OracleCommand("INSERTARC", oracleConexion);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -76,7 +76,7 @@ namespace Datos
         {
             try
             {
-                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
+                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
                 ora.Open();
                 OracleCommand comando = new OracleCommand("eliminarc", ora);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -100,7 +100,7 @@ namespace Datos
         /// <returns>Retorna una cadena modificada de la base de datos</returns>
         public bool Actualizar(Cliente cliente)
         {
-            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=sistemaf;USER ID = sistemaf ");
+            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
             try
             {
                 ora.Open();

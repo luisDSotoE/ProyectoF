@@ -41,8 +41,6 @@
             this.txtIdp = new System.Windows.Forms.TextBox();
             this.txtConsultar = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtIdf = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnInsertar = new System.Windows.Forms.Button();
             this.btnEliminado = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
@@ -155,7 +153,6 @@
             this.label9.Size = new System.Drawing.Size(77, 23);
             this.label9.TabIndex = 38;
             this.label9.Text = "Buscar:";
-
             // 
             // label2
             // 
@@ -194,8 +191,6 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.txtIdf);
-            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.btnInsertar);
             this.panel1.Controls.Add(this.txtStock);
             this.panel1.Controls.Add(this.label8);
@@ -209,23 +204,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(214, 376);
             this.panel1.TabIndex = 35;
-            // 
-            // txtIdf
-            // 
-            this.txtIdf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIdf.Location = new System.Drawing.Point(13, 285);
-            this.txtIdf.Name = "txtIdf";
-            this.txtIdf.Size = new System.Drawing.Size(189, 30);
-            this.txtIdf.TabIndex = 29;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 259);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 23);
-            this.label3.TabIndex = 28;
-            this.label3.Text = "Id_Factura";
             // 
             // btnInsertar
             // 
@@ -301,8 +279,6 @@
         private System.Windows.Forms.TextBox txtConsultar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnInsertar;
-        private System.Windows.Forms.TextBox txtIdf;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnEliminado;
     }
