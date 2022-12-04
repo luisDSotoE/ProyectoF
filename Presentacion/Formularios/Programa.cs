@@ -194,5 +194,14 @@ namespace Presentacion
             showSudMenu(sub3);
             HidSudMenu();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FrmUsuario Frm = new FrmUsuario();
+            abrirForm(Frm);
+            Frm.TopLevel = false;
+            PanelGeneral.Controls.Add(Frm);
+            Frm.Show();
+        }
     }
 }

@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Programa));
             this.panelMenuL = new System.Windows.Forms.Panel();
             this.sub3 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_Salir = new System.Windows.Forms.Button();
@@ -41,16 +42,16 @@
             this.btn_FA = new System.Windows.Forms.Button();
             this.btn_INICIO = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PanelGeneral = new System.Windows.Forms.Panel();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelMenuL.SuspendLayout();
             this.sub3.SuspendLayout();
             this.panel_SudMenuFact.SuspendLayout();
             this.panelSudMenuInicio.SuspendLayout();
             this.panelLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenuL
@@ -74,12 +75,30 @@
             // sub3
             // 
             this.sub3.BackColor = System.Drawing.Color.Gainsboro;
+            this.sub3.Controls.Add(this.button2);
             this.sub3.Controls.Add(this.button4);
             this.sub3.Dock = System.Windows.Forms.DockStyle.Top;
             this.sub3.Location = new System.Drawing.Point(0, 368);
             this.sub3.Name = "sub3";
-            this.sub3.Size = new System.Drawing.Size(250, 47);
+            this.sub3.Size = new System.Drawing.Size(250, 80);
             this.sub3.TabIndex = 8;
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(0, 40);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(250, 40);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Usuario";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button4
             // 
@@ -91,7 +110,7 @@
             this.button4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Location = new System.Drawing.Point(0, 0);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(250, 47);
+            this.button4.Size = new System.Drawing.Size(250, 40);
             this.button4.TabIndex = 0;
             this.button4.Text = "Clientes";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -111,7 +130,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(250, 40);
             this.button1.TabIndex = 7;
-            this.button1.Text = "PERSONA";
+            this.button1.Text = "PERSONAL";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -232,16 +251,6 @@
             this.panelLogo.Size = new System.Drawing.Size(250, 150);
             this.panelLogo.TabIndex = 0;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(34, 9);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(182, 132);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // PanelGeneral
             // 
             this.PanelGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(70)))), ((int)(((byte)(29)))));
@@ -256,9 +265,19 @@
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(34, 9);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(182, 132);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // Programa
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1102, 703);
             this.Controls.Add(this.PanelGeneral);
@@ -276,8 +295,8 @@
             this.panel_SudMenuFact.ResumeLayout(false);
             this.panelSudMenuInicio.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -299,6 +318,7 @@
         private System.Windows.Forms.Panel sub3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 
