@@ -16,37 +16,6 @@ namespace Presentacion
         public Programa()
         {
             InitializeComponent();
-            CustomiceDesing();
-        }
-
-        private void CustomiceDesing()
-        {
-            panelSudMenuInicio.Visible = false;
-            panel_SudMenuFact.Visible = false;
-            
-        }
-        
-        private void HidSudMenu()
-        {
-            //if (panelSudMenuInicio.Visible == true)
-            //panelSudMenuInicio.Visible = false;
-
-            //if (panel_SudMenuFact.Visible == true)
-            //    panel_SudMenuFact.Visible = false;
-                
-            //if (sub3.Visible == true)
-            //    sub3.Visible = false;
-        }
-
-        private void showSudMenu(Panel sudMenu)
-        {
-            if (sudMenu.Visible == false)
-            {
-                HidSudMenu();
-                sudMenu.Visible = true;
-            }
-            else
-                sudMenu.Visible = false;
         }
 
         void abrirForm(Form form) {
@@ -90,32 +59,6 @@ namespace Presentacion
             Application.Exit();
         }
 
-        private void btn_INICIO_Click(object sender, EventArgs e)
-        {
-            showSudMenu(panelSudMenuInicio);
-            HidSudMenu();
-        }
-
-        private void btn_Fact_Click(object sender, EventArgs e)
-        {
-            showSudMenu(panel_SudMenuFact);
-            HidSudMenu();
-        }
-
-        private void panelSudMenuInicio_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel_SudMenuFact_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btn_Facturar_Click(object sender, EventArgs e)
         {
@@ -187,12 +130,6 @@ namespace Presentacion
             Frm.TopLevel = false;
             PanelGeneral.Controls.Add(Frm);
             Frm.Show();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            showSudMenu(sub3);
-            HidSudMenu();
         }
 
         private void button2_Click(object sender, EventArgs e)
