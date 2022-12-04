@@ -30,28 +30,27 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Programa));
             this.panelMenuL = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.btn_Salir = new System.Windows.Forms.Button();
+            this.btn_Productos = new System.Windows.Forms.Button();
             this.btn_Facturar = new System.Windows.Forms.Button();
-            this.btn_FA = new System.Windows.Forms.Button();
+            this.Btn_Clientes = new System.Windows.Forms.Button();
+            this.Btn_Usuarios = new System.Windows.Forms.Button();
+            this.btn_Salir = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PanelGeneral = new System.Windows.Forms.Panel();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.botones = new System.Windows.Forms.Panel();
             this.panelMenuL.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
+            this.botones.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenuL
             // 
             this.panelMenuL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(140)))), ((int)(((byte)(59)))));
-            this.panelMenuL.Controls.Add(this.btn_FA);
-            this.panelMenuL.Controls.Add(this.btn_Facturar);
-            this.panelMenuL.Controls.Add(this.button4);
-            this.panelMenuL.Controls.Add(this.button2);
+            this.panelMenuL.Controls.Add(this.botones);
             this.panelMenuL.Controls.Add(this.btn_Salir);
             this.panelMenuL.Controls.Add(this.panelLogo);
             this.panelMenuL.Dock = System.Windows.Forms.DockStyle.Left;
@@ -60,37 +59,77 @@
             this.panelMenuL.Size = new System.Drawing.Size(250, 703);
             this.panelMenuL.TabIndex = 0;
             // 
-            // button2
+            // btn_Productos
             // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(3, 449);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(250, 40);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Usuario";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn_Productos.BackColor = System.Drawing.Color.White;
+            this.btn_Productos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Productos.FlatAppearance.BorderSize = 0;
+            this.btn_Productos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.btn_Productos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btn_Productos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Productos.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Productos.Location = new System.Drawing.Point(0, 90);
+            this.btn_Productos.Name = "btn_Productos";
+            this.btn_Productos.Size = new System.Drawing.Size(247, 50);
+            this.btn_Productos.TabIndex = 0;
+            this.btn_Productos.Text = "Productos";
+            this.btn_Productos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Productos.UseVisualStyleBackColor = false;
+            this.btn_Productos.Click += new System.EventHandler(this.btn_FA_Click);
             // 
-            // button4
+            // btn_Facturar
             // 
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(3, 403);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(253, 40);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "Clientes";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btn_Facturar.BackColor = System.Drawing.Color.White;
+            this.btn_Facturar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Facturar.FlatAppearance.BorderSize = 0;
+            this.btn_Facturar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.btn_Facturar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btn_Facturar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Facturar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Facturar.Location = new System.Drawing.Point(0, 0);
+            this.btn_Facturar.Name = "btn_Facturar";
+            this.btn_Facturar.Size = new System.Drawing.Size(247, 50);
+            this.btn_Facturar.TabIndex = 0;
+            this.btn_Facturar.Text = "Facturar";
+            this.btn_Facturar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Facturar.UseVisualStyleBackColor = false;
+            this.btn_Facturar.Click += new System.EventHandler(this.btn_Facturar_Click);
+            // 
+            // Btn_Clientes
+            // 
+            this.Btn_Clientes.BackColor = System.Drawing.Color.White;
+            this.Btn_Clientes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Btn_Clientes.FlatAppearance.BorderSize = 0;
+            this.Btn_Clientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.Btn_Clientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.Btn_Clientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Clientes.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Clientes.Location = new System.Drawing.Point(0, 140);
+            this.Btn_Clientes.Name = "Btn_Clientes";
+            this.Btn_Clientes.Size = new System.Drawing.Size(247, 40);
+            this.Btn_Clientes.TabIndex = 0;
+            this.Btn_Clientes.Text = "Clientes";
+            this.Btn_Clientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_Clientes.UseVisualStyleBackColor = false;
+            this.Btn_Clientes.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // Btn_Usuarios
+            // 
+            this.Btn_Usuarios.BackColor = System.Drawing.Color.White;
+            this.Btn_Usuarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Btn_Usuarios.FlatAppearance.BorderSize = 0;
+            this.Btn_Usuarios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.Btn_Usuarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.Btn_Usuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Usuarios.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Usuarios.Location = new System.Drawing.Point(0, 50);
+            this.Btn_Usuarios.Name = "Btn_Usuarios";
+            this.Btn_Usuarios.Size = new System.Drawing.Size(247, 40);
+            this.Btn_Usuarios.TabIndex = 1;
+            this.Btn_Usuarios.Text = "Usuario";
+            this.Btn_Usuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_Usuarios.UseVisualStyleBackColor = false;
+            this.Btn_Usuarios.Click += new System.EventHandler(this.button2_Click);
             // 
             // btn_Salir
             // 
@@ -106,38 +145,6 @@
             this.btn_Salir.Text = "SALIR";
             this.btn_Salir.UseVisualStyleBackColor = false;
             this.btn_Salir.Click += new System.EventHandler(this.btn_Salir_Click);
-            // 
-            // btn_Facturar
-            // 
-            this.btn_Facturar.FlatAppearance.BorderSize = 0;
-            this.btn_Facturar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
-            this.btn_Facturar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btn_Facturar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Facturar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Facturar.Location = new System.Drawing.Point(-9, 511);
-            this.btn_Facturar.Name = "btn_Facturar";
-            this.btn_Facturar.Size = new System.Drawing.Size(253, 50);
-            this.btn_Facturar.TabIndex = 0;
-            this.btn_Facturar.Text = "Facturar";
-            this.btn_Facturar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Facturar.UseVisualStyleBackColor = true;
-            this.btn_Facturar.Click += new System.EventHandler(this.btn_Facturar_Click);
-            // 
-            // btn_FA
-            // 
-            this.btn_FA.FlatAppearance.BorderSize = 0;
-            this.btn_FA.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
-            this.btn_FA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btn_FA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_FA.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_FA.Location = new System.Drawing.Point(-3, 567);
-            this.btn_FA.Name = "btn_FA";
-            this.btn_FA.Size = new System.Drawing.Size(253, 50);
-            this.btn_FA.TabIndex = 0;
-            this.btn_FA.Text = "Productos";
-            this.btn_FA.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_FA.UseVisualStyleBackColor = true;
-            this.btn_FA.Click += new System.EventHandler(this.btn_FA_Click);
             // 
             // panelLogo
             // 
@@ -171,9 +178,20 @@
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             // 
+            // botones
+            // 
+            this.botones.Controls.Add(this.Btn_Clientes);
+            this.botones.Controls.Add(this.btn_Productos);
+            this.botones.Controls.Add(this.Btn_Usuarios);
+            this.botones.Controls.Add(this.btn_Facturar);
+            this.botones.Location = new System.Drawing.Point(3, 156);
+            this.botones.Name = "botones";
+            this.botones.Size = new System.Drawing.Size(247, 190);
+            this.botones.TabIndex = 7;
+            // 
             // Programa
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1102, 703);
             this.Controls.Add(this.PanelGeneral);
@@ -190,6 +208,7 @@
             this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
+            this.botones.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -197,15 +216,16 @@
         #endregion
 
         private System.Windows.Forms.Panel panelMenuL;
-        private System.Windows.Forms.Button btn_FA;
+        private System.Windows.Forms.Button btn_Productos;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Button btn_Facturar;
         private System.Windows.Forms.Button btn_Salir;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel PanelGeneral;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Btn_Clientes;
+        private System.Windows.Forms.Button Btn_Usuarios;
+        private System.Windows.Forms.Panel botones;
     }
 }
 
