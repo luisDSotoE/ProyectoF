@@ -12,7 +12,7 @@ namespace Presentacion.Formularios
     
     public partial class FrmProductos : Form
     {
-        OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
+        OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=proyecto;USER ID = proyecto ");
         public FrmProductos()
         {
             InitializeComponent();
@@ -255,7 +255,7 @@ namespace Presentacion.Formularios
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
+           
             ora.Open();
             OracleCommand comando = new OracleCommand("seleccionarPRODUCTO", ora);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -276,24 +276,24 @@ namespace Presentacion.Formularios
         private void btnInsertar_Click(object sender, EventArgs e)
         {
             Producto producto = new Producto();
-            producto.Nombre = txtNombre.Text;   
-            producto.Precio =txtPrecio.Text;
-            producto.Stock = Convert.ToDouble(txtStock.Text);
+            producto.Nombre = txtNombre.Text;
+            producto.Precio = txtPrecio.Text;
+            producto.Stock = Convert.ToInt32(txtStock.Text);
+            
             productos.Insertar(producto);
+            
             productos.CargarDatos(Grilla);
+            
             txtNombre.Text = "";
             txtPrecio.Text = "";
             txtStock.Text = "";
-
-
-            
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             try
             {
-                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
+                
                 ora.Open();
                 OracleCommand comando = new OracleCommand("Actualizarp", ora);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -323,7 +323,7 @@ namespace Presentacion.Formularios
 
         private void btnEliminado_Click(object sender, EventArgs e)
         {
-            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
+            
             ora.Open();
             OracleCommand comando = new OracleCommand("eliminarp", ora);
             comando.CommandType = System.Data.CommandType.StoredProcedure;

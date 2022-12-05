@@ -20,7 +20,7 @@ namespace Presentacion.Formularios
 
     {
 
-        OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
+        OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=proyecto;USER ID = proyecto ");
         public InicioSesion()
         {
             InitializeComponent();
@@ -120,7 +120,9 @@ namespace Presentacion.Formularios
             if (lector.Read())
             {
                 Programa Formulario = new Programa();
+
                 ora.Close();
+                this.Hide();
                 Formulario.Show();
             }
             else

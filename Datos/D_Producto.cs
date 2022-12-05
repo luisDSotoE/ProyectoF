@@ -8,6 +8,7 @@ namespace Datos
 {
     public class D_Producto
     {
+        OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=proyecto;USER ID = proyecto ");
         /// <summary>
         /// Inserta una cadena y inicializa con una nueva Id generada automaticamente
         /// </summary>
@@ -17,22 +18,23 @@ namespace Datos
         {
             try
             {
-                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
                 ora.Open();
-                OracleCommand comando = new OracleCommand("INSERTARP", ora);
+                OracleCommand comando = new OracleCommand("insertarp", ora);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 comando.Parameters.Add("Nom", OracleType.VarChar).Value = producto.Nombre;
-                comando.Parameters.Add("precio", OracleType.VarChar).Value = producto.Precio;
-                comando.Parameters.Add("stock", OracleType.VarChar).Value = producto.Stock;
+                comando.Parameters.Add("precio", OracleType.Number).Value = producto.Precio;
+                comando.Parameters.Add("stock", OracleType.Number).Value = producto.Stock;
                 comando.ExecuteNonQuery();
+                comando.CommandType = CommandType.StoredProcedure;
                 MessageBox.Show("producto insertado");
                 ora.Close();
                 return true;
             }
             catch (Exception ex)
             {
-                return false;
+                ora.Close();
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
         /// <summary>
@@ -44,7 +46,7 @@ namespace Datos
         {
             try
             {
-                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
+
                 ora.Open();
                 OracleCommand comando = new OracleCommand("Actualizarp", ora);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -60,8 +62,8 @@ namespace Datos
             }
             catch (Exception ex)
             {
-                return false;
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
         /// <summary>
@@ -71,7 +73,6 @@ namespace Datos
         /// <returns>elimina la cadena</returns>
         public bool Eliminar(int idProducto)
         {
-            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
             ora.Open();
             OracleCommand comando = new OracleCommand("eliminarp", ora);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -91,7 +92,6 @@ namespace Datos
 
             try
             {
-                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
                 ora.Open();
                 OracleCommand comando = new OracleCommand("seleccionarPRODUCTO", ora);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -102,6 +102,7 @@ namespace Datos
                 DataTable tabla = new DataTable();
                 adaptador.Fill(tabla);
                 grilla.DataSource = tabla;
+                ora.Close();
                 return true;
             }
             catch (Exception)

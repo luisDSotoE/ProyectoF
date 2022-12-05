@@ -30,21 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Programa));
             this.panelMenuL = new System.Windows.Forms.Panel();
+            this.botones = new System.Windows.Forms.Panel();
+            this.Btn_Clientes = new System.Windows.Forms.Button();
             this.btn_Productos = new System.Windows.Forms.Button();
             this.btn_Facturar = new System.Windows.Forms.Button();
-            this.Btn_Clientes = new System.Windows.Forms.Button();
-            this.Btn_Usuarios = new System.Windows.Forms.Button();
             this.btn_Salir = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PanelGeneral = new System.Windows.Forms.Panel();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
-            this.botones = new System.Windows.Forms.Panel();
             this.panelMenuL.SuspendLayout();
+            this.botones.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
-            this.botones.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenuL
@@ -59,6 +58,34 @@
             this.panelMenuL.Size = new System.Drawing.Size(250, 703);
             this.panelMenuL.TabIndex = 0;
             // 
+            // botones
+            // 
+            this.botones.Controls.Add(this.Btn_Clientes);
+            this.botones.Controls.Add(this.btn_Productos);
+            this.botones.Controls.Add(this.btn_Facturar);
+            this.botones.Location = new System.Drawing.Point(3, 156);
+            this.botones.Name = "botones";
+            this.botones.Size = new System.Drawing.Size(247, 190);
+            this.botones.TabIndex = 7;
+            // 
+            // Btn_Clientes
+            // 
+            this.Btn_Clientes.BackColor = System.Drawing.Color.White;
+            this.Btn_Clientes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Btn_Clientes.FlatAppearance.BorderSize = 0;
+            this.Btn_Clientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+            this.Btn_Clientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.Btn_Clientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Clientes.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Clientes.Location = new System.Drawing.Point(0, 100);
+            this.Btn_Clientes.Name = "Btn_Clientes";
+            this.Btn_Clientes.Size = new System.Drawing.Size(247, 40);
+            this.Btn_Clientes.TabIndex = 0;
+            this.Btn_Clientes.Text = "Clientes";
+            this.Btn_Clientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_Clientes.UseVisualStyleBackColor = false;
+            this.Btn_Clientes.Click += new System.EventHandler(this.button4_Click);
+            // 
             // btn_Productos
             // 
             this.btn_Productos.BackColor = System.Drawing.Color.White;
@@ -68,7 +95,7 @@
             this.btn_Productos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.btn_Productos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Productos.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Productos.Location = new System.Drawing.Point(0, 90);
+            this.btn_Productos.Location = new System.Drawing.Point(0, 50);
             this.btn_Productos.Name = "btn_Productos";
             this.btn_Productos.Size = new System.Drawing.Size(247, 50);
             this.btn_Productos.TabIndex = 0;
@@ -94,42 +121,6 @@
             this.btn_Facturar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Facturar.UseVisualStyleBackColor = false;
             this.btn_Facturar.Click += new System.EventHandler(this.btn_Facturar_Click);
-            // 
-            // Btn_Clientes
-            // 
-            this.Btn_Clientes.BackColor = System.Drawing.Color.White;
-            this.Btn_Clientes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Btn_Clientes.FlatAppearance.BorderSize = 0;
-            this.Btn_Clientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
-            this.Btn_Clientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.Btn_Clientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Clientes.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Clientes.Location = new System.Drawing.Point(0, 140);
-            this.Btn_Clientes.Name = "Btn_Clientes";
-            this.Btn_Clientes.Size = new System.Drawing.Size(247, 40);
-            this.Btn_Clientes.TabIndex = 0;
-            this.Btn_Clientes.Text = "Clientes";
-            this.Btn_Clientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_Clientes.UseVisualStyleBackColor = false;
-            this.Btn_Clientes.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // Btn_Usuarios
-            // 
-            this.Btn_Usuarios.BackColor = System.Drawing.Color.White;
-            this.Btn_Usuarios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Btn_Usuarios.FlatAppearance.BorderSize = 0;
-            this.Btn_Usuarios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
-            this.Btn_Usuarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.Btn_Usuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_Usuarios.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Usuarios.Location = new System.Drawing.Point(0, 50);
-            this.Btn_Usuarios.Name = "Btn_Usuarios";
-            this.Btn_Usuarios.Size = new System.Drawing.Size(247, 40);
-            this.Btn_Usuarios.TabIndex = 1;
-            this.Btn_Usuarios.Text = "Usuario";
-            this.Btn_Usuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_Usuarios.UseVisualStyleBackColor = false;
-            this.Btn_Usuarios.Click += new System.EventHandler(this.button2_Click);
             // 
             // btn_Salir
             // 
@@ -178,17 +169,6 @@
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             // 
-            // botones
-            // 
-            this.botones.Controls.Add(this.Btn_Clientes);
-            this.botones.Controls.Add(this.btn_Productos);
-            this.botones.Controls.Add(this.Btn_Usuarios);
-            this.botones.Controls.Add(this.btn_Facturar);
-            this.botones.Location = new System.Drawing.Point(3, 156);
-            this.botones.Name = "botones";
-            this.botones.Size = new System.Drawing.Size(247, 190);
-            this.botones.TabIndex = 7;
-            // 
             // Programa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -205,10 +185,10 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Programa_FormClosing);
             this.panelMenuL.ResumeLayout(false);
+            this.botones.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
-            this.botones.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -224,7 +204,6 @@
         private System.Windows.Forms.Panel PanelGeneral;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
         private System.Windows.Forms.Button Btn_Clientes;
-        private System.Windows.Forms.Button Btn_Usuarios;
         private System.Windows.Forms.Panel botones;
     }
 }

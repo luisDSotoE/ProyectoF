@@ -8,16 +8,17 @@ namespace Datos
 {
     public class D_Cliente
     {
-         /// <summary>
-         /// Obtiene los datos de la base de datos e implementa en la grilla
-         /// </summary>
-         /// <param name="grilla"></param>
-         /// <returns>Retorna una cadena de Datos de Cliente</returns>
+        OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=proyecto;USER ID = proyecto ");
+        /// <summary>
+        /// Obtiene los datos de la base de datos e implementa en la grilla
+        /// </summary>
+        /// <param name="grilla"></param>
+        /// <returns>Retorna una cadena de Datos de Cliente</returns>
         public bool CargarDatos(DataGridView grilla)
         {
             try
             {
-                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
+                
                 ora.Open();
                 OracleCommand comando = new OracleCommand("seleccionarCLIENTE", ora);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -46,9 +47,9 @@ namespace Datos
         {
             try
             {
-                OracleConnection oracleConexion = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
-                oracleConexion.Open();
-                OracleCommand comando = new OracleCommand("INSERTARC", oracleConexion);
+                
+                ora.Open();
+                OracleCommand comando = new OracleCommand("INSERTARC", ora);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 comando.Parameters.Add("Nom", OracleType.VarChar).Value = cliente.Nombres;
                 comando.Parameters.Add("Ape", OracleType.VarChar).Value = cliente.Apellidos;
@@ -58,7 +59,7 @@ namespace Datos
                 comando.ExecuteNonQuery();
                 comando.CommandType = CommandType.StoredProcedure;
                 MessageBox.Show("CLIENTE insertado");
-                oracleConexion.Close();
+                ora.Close();
                 return true;
             }
             catch (Exception)
@@ -76,7 +77,7 @@ namespace Datos
         {
             try
             {
-                OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
+                
                 ora.Open();
                 OracleCommand comando = new OracleCommand("eliminarc", ora);
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -100,7 +101,7 @@ namespace Datos
         /// <returns>Retorna una cadena modificada de la base de datos</returns>
         public bool Actualizar(Cliente cliente)
         {
-            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
+            
             try
             {
                 ora.Open();

@@ -31,7 +31,7 @@ namespace Presentacion
 
 
         {
-            OracleConnection ora = new OracleConnection("DATA SOURCE = xe ; PASSWORD=facturacion;USER ID = facturacion ");
+            
             ora.Open();
             OracleCommand comando = new OracleCommand("seleccionarFACTURA", ora);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
@@ -51,7 +51,7 @@ namespace Presentacion
             factura.Id = Convert.ToInt32(txtIdF.Text);
             factura.Id_cliente = Convert.ToInt32(txtIdC.Text);
             factura.Fecha = txtFecha.Text;
-            factura.Id_Producto = Convert.ToInt32(txtIdC.Text);
+            factura.Id_Producto = Convert.ToInt32(txtIdP.Text);
 
 
             logicaFactura.Actualizar(factura);
@@ -88,6 +88,7 @@ namespace Presentacion
             logicaFactura.Insertar(factura);
             logicaFactura.CargarDatos(Grilla);
             txtIdF.Text = "";
+            txtIdC.Text = "";
             txtFecha.Text = "";
             txtIdP.Text = "";
         }
